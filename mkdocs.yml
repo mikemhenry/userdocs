@@ -2,11 +2,11 @@ site_name: HPC Documentation
 
 use_directory_urls: false
 nav:
-  - News: general/news.md
+  - Announcement: general/news.md
   - Quick Start: quick-start.md
   - Getting Started:
     - Code of Conduct: code-of-conduct.md
-    - UniBE HPC system "UBELIX": getting-Started/ubelix-overview.md
+    - MSKCC HPC system "LILAC": getting-Started/ubelix-overview.md
     - Accounts and Activation: getting-Started/account.md
     - Accessing the HPCs: getting-Started/login-ssh.md
       #      - software for connecting to the HPCs:
@@ -20,7 +20,7 @@ nav:
     - Workspace management: hpc-workspaces/management.md
     - Software environment: hpc-workspaces/environment.md
     - Monitoring: hpc-workspaces/monitoring.md
-  - SLURM / Job handling:
+  - LSF / Job handling:
     - Partitions / QoS: slurm/partitions.md
     - Submitting jobs: slurm/submission.md
     #      - Parallel execution:
@@ -65,10 +65,10 @@ nav:
 
 
 # Copyright footer
-copyright: 'Copyright &copy; University of Bern, IT Service Office'
+copyright: 'Copyright &copy; Memorial Sloan Kettering Cancer Center, High Performance Computing Group'
 # Link to repo
-repo_name: 'hpc-unibe-ch/hpc-docs'
-repo_url: 'https://github.com/hpc-unibe-ch/hpc-unibe-ch.github.io'
+repo_name: 'HPC/userdocs'
+repo_url: 'https://github.mskcc.org/HPC/userdocs.git'
 edit_uri: 'edit/main/docs'
 
 # Configuration
@@ -76,7 +76,7 @@ theme:
   name: material
 
 extra_css:
- - 'stylesheets/unibe.css'
+ - 'stylesheets/mskcc.css'
 
 plugins:
   - git-revision-date
@@ -107,5 +107,5 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/hpc-unibe-ch
+      link: https://github.mskcc.org/HPC/userdocs.git
 
