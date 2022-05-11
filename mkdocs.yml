@@ -2,7 +2,7 @@ site_name: HPC Documentation
 
 use_directory_urls: false
 nav:
-  - Announcement: general/news.md
+  - Announcements: general/news.md
   - Quick Start: quick-start.md
   - Getting Started:
     - Code of Conduct: code-of-conduct.md
