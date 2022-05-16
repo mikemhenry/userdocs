@@ -2,7 +2,7 @@
 
 [ -d gh-pages ] && rm -rf gh-pages
 
-git clone git@github.com:hpc-unibe-ch/hpc-unibe-ch.github.io.git gh-pages
+git clone git@github.mskcc.org:HPC/userdocs.git gh-pages
 cd gh-pages
 mkdocs gh-deploy --config-file ../mkdocs.yml --remote-branch master
 cd ..
