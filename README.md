@@ -1,7 +1,7 @@
 # HPC User Documentation
 
 This is the repository of the offical end user documentation of MSKCC HPC clusters and related topics
-is managed.
+is managed. 
 
 This documentation project makes use of [MkDocs Material Design Theme](https://squidfunk.github.io/mkdocs-material)
 
