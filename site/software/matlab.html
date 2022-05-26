@@ -1,0 +1,1688 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.14">
+    
+    
+      
+        <title>Matlab - HPC Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3de6f41f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/mskcc.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#matlab" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="HPC Documentation" class="md-header__button md-logo" aria-label="HPC Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HPC Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Matlab
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.mskcc.org/HPC/userdocs.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HPC/userdocs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="HPC Documentation" class="md-nav__button md-logo" aria-label="HPC Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    HPC Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.mskcc.org/HPC/userdocs.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HPC/userdocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/news.html" class="md-nav__link">
+        Announcements
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start.html" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/ubelix-overview.html" class="md-nav__link">
+        MSKCC HPC system "LILAC"
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/account.html" class="md-nav__link">
+        Accounts and Activation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/login-ssh.html" class="md-nav__link">
+        Accessing the HPCs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/workspaces.html" class="md-nav__link">
+        Workspaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/ssh-customization.html" class="md-nav__link">
+        SSH customization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/shell.html" class="md-nav__link">
+        Shell customization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/parallelization.html" class="md-nav__link">
+        Parallelization
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Workspaces
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Workspaces" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Workspaces
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc-workspaces/workspaces.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc-workspaces/management.html" class="md-nav__link">
+        Workspace management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc-workspaces/environment.html" class="md-nav__link">
+        Software environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc-workspaces/monitoring.html" class="md-nav__link">
+        Monitoring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          LSF / Job handling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="LSF / Job handling" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          LSF / Job handling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/partitions.html" class="md-nav__link">
+        Partitions / QoS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/submission.html" class="md-nav__link">
+        Submitting jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/monitoring-jobs.html" class="md-nav__link">
+        Monitoring Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/deleting-jobs.html" class="md-nav__link">
+        Deleting Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/array-jobs.html" class="md-nav__link">
+        Array Jobs with Slurm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/dependencies.html" class="md-nav__link">
+        Job dependencies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/gpus.html" class="md-nav__link">
+        GPUs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/interactive-jobs.html" class="md-nav__link">
+        Interactive Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/investigating-job-failure.html" class="md-nav__link">
+        Investigating a Job Failure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/checkpointing.html" class="md-nav__link">
+        Checkpointing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/fair-share.html" class="md-nav__link">
+        Fair Share
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hpc-modules.html" class="md-nav__link">
+        HPC software environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="installing-custom-software.html" class="md-nav__link">
+        Installing Custom Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="EasyBuild.html" class="md-nav__link">
+        EasyBuild
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          Supported Applications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Supported Applications" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Supported Applications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Anaconda.html" class="md-nav__link">
+        Anaconda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CUDA.html" class="md-nav__link">
+        CUDA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="JupyterLab.html" class="md-nav__link">
+        JupyterLab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Matlab
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="matlab.html" class="md-nav__link md-nav__link--active">
+        Matlab
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#facts-about-matlab-on-ubelix" class="md-nav__link">
+    Facts about Matlab on UBELIX
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-matlab-on-the-compute-nodes" class="md-nav__link">
+    Running Matlab on the Compute Nodes
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Matlab on the Compute Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passing-arguments-to-a-m-file" class="md-nav__link">
+    Passing Arguments to a m-File
+  </a>
+  
+    <nav class="md-nav" aria-label="Passing Arguments to a m-File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-the-variables-before-running-the-script" class="md-nav__link">
+    Define the Variables Before Running the Script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-topics" class="md-nav__link">
+    Advanced Topics
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multithreading" class="md-nav__link">
+    Multithreading
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="bzip2.html" class="md-nav__link">
+        Parallel BZIP2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ParaView.html" class="md-nav__link">
+        ParaView
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python.html" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="r.html" class="md-nav__link">
+        R
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="relion.html" class="md-nav__link">
+        Relion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="singularity.html" class="md-nav__link">
+        Singularity
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="terminal-multiplexer-tmux.html" class="md-nav__link">
+        Terminal Multiplexer (tmux)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Storage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/filesystem-overview.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/quota.html" class="md-nav__link">
+        Quota
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/file-transfer.html" class="md-nav__link">
+        Moving files to and from the HPCs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/scratch.html" class="md-nav__link">
+        Scratch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Optimization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Optimization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Optimization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimization/scaling.html" class="md-nav__link">
+        Scaling
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/investment.html" class="md-nav__link">
+        Investment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/support.html" class="md-nav__link">
+        Support
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/faq.html" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../halloffame.html" class="md-nav__link">
+        Hall of Fame
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#facts-about-matlab-on-ubelix" class="md-nav__link">
+    Facts about Matlab on UBELIX
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-matlab-on-the-compute-nodes" class="md-nav__link">
+    Running Matlab on the Compute Nodes
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Matlab on the Compute Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passing-arguments-to-a-m-file" class="md-nav__link">
+    Passing Arguments to a m-File
+  </a>
+  
+    <nav class="md-nav" aria-label="Passing Arguments to a m-File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-the-variables-before-running-the-script" class="md-nav__link">
+    Define the Variables Before Running the Script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-topics" class="md-nav__link">
+    Advanced Topics
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multithreading" class="md-nav__link">
+    Multithreading
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.mskcc.org/HPC/userdocs.git/edit/main/docs/software/matlab.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="matlab">Matlab</h1>
+<h2 id="description">Description</h2>
+<p>UBELIX is always featuring the latest two (b)-releases of Matlab.</p>
+<h2 id="facts-about-matlab-on-ubelix">Facts about Matlab on UBELIX</h2>
+<ul>
+<li>It <strong>can run in parallel on one node</strong>, thanks to the Parallel Computing ToolBox</li>
+<li>It <strong>can take advantage of GPUs</strong></li>
+<li>It cannot run on more than one node as we do not have the Distributed Computing Toolbox.</li>
+</ul>
+<div class="admonition types caution">
+<p>Matlab is NOT FREE to use! Every user using Matlab on UBELIX must have at least one valid license. You can buy licenses at our <a href="https://softwareshop.unibe.ch/">software shop</a>.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>MATLAB Version: 9.3.0.713579 (R2017b) contains:</th>
+<th>MATLAB Version: 9.1.0.441655 (R2016b) contains:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simulink Version 9.0 (R2017b)</td>
+<td>Simulink Version 8.8 (R2016b)</td>
+</tr>
+<tr>
+<td>Bioinformatics Toolbox Version 4.9 (R2017b)</td>
+<td>Communications System Toolbox Version 6.3 (R2016b)</td>
+</tr>
+<tr>
+<td>Communications System Toolbox Version 6.5 (R2017b)</td>
+<td>Computer Vision System Toolbox Version 7.2 (R2016b)</td>
+</tr>
+<tr>
+<td>Computer Vision System Toolbox Version 8.0 (R2017b)</td>
+<td>Computer Vision System Toolbox Version 7.2 (R2016b)</td>
+</tr>
+<tr>
+<td>Control System Toolbox Version 10.3 (R2017b)</td>
+<td>Curve Fitting Toolbox Version 3.5.4 (R2016b)</td>
+</tr>
+<tr>
+<td>Curve Fitting Toolbox Version 3.5.6 (R2017b)</td>
+<td>DSP System Toolbox Version 9.3 (R2016b)</td>
+</tr>
+<tr>
+<td>DSP System Toolbox Version 9.5 (R2017b)</td>
+<td>Database Toolbox Version 7.0 (R2016b)</td>
+</tr>
+<tr>
+<td>Database Toolbox Version 8.0 (R2017b)</td>
+<td>Financial Toolbox Version 5.8 (R2016b)</td>
+</tr>
+<tr>
+<td>Financial Toolbox Version 5.10 (R2017b)</td>
+<td>Fixed-Point Designer Version 5.3 (R2016b)</td>
+</tr>
+<tr>
+<td>Fixed-Point Designer Version 6.0 (R2017b)</td>
+<td>Fuzzy Logic Toolbox Version 2.2.24 (R2016b)</td>
+</tr>
+<tr>
+<td>Fuzzy Logic Toolbox Version 2.3 (R2017b)</td>
+<td>Image Acquisition Toolbox Version 5.1 (R2016b)</td>
+</tr>
+<tr>
+<td>Global Optimization Toolbox Version 3.4.3 (R2017b)</td>
+<td>Image Processing Toolbox Version 9.5 (R2016b)</td>
+</tr>
+<tr>
+<td>Image Acquisition Toolbox Version 5.3 (R2017b)</td>
+<td>MATLAB Coder Version 3.2 (R2016b)</td>
+</tr>
+<tr>
+<td>Image Processing Toolbox Version 10.1 (R2017b)</td>
+<td>MATLAB Compiler Version 6.3 (R2016b)</td>
+</tr>
+<tr>
+<td>Instrument Control Toolbox Version 3.12 (R2017b)</td>
+<td>MATLAB Compiler SDK Version 6.3 (R2016b)</td>
+</tr>
+<tr>
+<td>MATLAB Coder Version 3.4 (R2017b)</td>
+<td>Mapping Toolbox Version 4.4 (R2016b)</td>
+</tr>
+<tr>
+<td>MATLAB Compiler Version 6.5 (R2017b)</td>
+<td>Neural Network Toolbox Version 9.1 (R2016b)</td>
+</tr>
+<tr>
+<td>MATLAB Compiler SDK Version 6.4 (R2017b)</td>
+<td>Optimization Toolbox Version 7.5 (R2016b)</td>
+</tr>
+<tr>
+<td>Mapping Toolbox Version 4.5.1 (R2017b)</td>
+<td>Parallel Computing Toolbox Version 6.9 (R2016b)</td>
+</tr>
+<tr>
+<td>Model Predictive Control Toolbox Version 6.0 (R2017b)</td>
+<td>Partial Differential Equation Toolbox Version 2.3 (R2016b)</td>
+</tr>
+<tr>
+<td>Neural Network Toolbox Version 11.0 (R2017b)</td>
+<td>Robust Control Toolbox Version 6.2 (R2016b)</td>
+</tr>
+<tr>
+<td>Optimization Toolbox Version 8.0 (R2017b)</td>
+<td>Signal Processing Toolbox Version 7.3 (R2016b)</td>
+</tr>
+<tr>
+<td>Parallel Computing Toolbox Version 6.11 (R2017b)</td>
+<td>Simscape Version 4.1 (R2016b)</td>
+</tr>
+<tr>
+<td>Partial Differential Equation Toolbox Version 2.5 (R2017b)</td>
+<td>Simscape Multibody Version 4.9 (R2016b)</td>
+</tr>
+<tr>
+<td>Robust Control Toolbox Version 6.4 (R2017b)</td>
+<td>Simscape Power Systems Version 6.6 (R2016b)</td>
+</tr>
+<tr>
+<td>Signal Processing Toolbox Version 7.5 (R2017b)</td>
+<td>Simulink Coder Version 8.11 (R2016b)</td>
+</tr>
+<tr>
+<td>Simscape Version 4.3 (R2017b)</td>
+<td>Simulink Control Design Version 4.4 (R2016b)</td>
+</tr>
+<tr>
+<td>Simscape Multibody Version 5.1 (R2017b)</td>
+<td>Simulink Design Optimization Version 3.1 (R2016b)</td>
+</tr>
+<tr>
+<td>Simscape Power Systems Version 6.8 (R2017b)</td>
+<td>Simulink Verification and Validation Version 3.12 (R2016b)</td>
+</tr>
+<tr>
+<td>Simulink Check Version 4.0 (R2017b)</td>
+<td>Stateflow Version 8.8 (R2016b)</td>
+</tr>
+<tr>
+<td>Simulink Coder Version 8.13 (R2017b)</td>
+<td>Statistics and Machine Learning Toolbox Version 11.0 (R2016b)</td>
+</tr>
+<tr>
+<td>Simulink Control Design Version 5.0 (R2017b)</td>
+<td>Symbolic Math Toolbox Version 7.1 (R2016b)</td>
+</tr>
+<tr>
+<td>Simulink Coverage Version 4.0 (R2017b)</td>
+<td>System Identification Toolbox Version 9.5 (R2016b)</td>
+</tr>
+<tr>
+<td>Simulink Design Optimization Version 3.3 (R2017b)</td>
+<td>Wavelet Toolbox Version 4.17 (R2016b)</td>
+</tr>
+<tr>
+<td>Simulink Requirements Version 1.0 (R2017b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Stateflow Version 9.0 (R2017b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Statistics and Machine Learning Toolbox Version 11.2 (R2017b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Symbolic Math Toolbox Version 8.0 (R2017b)</td>
+<td></td>
+</tr>
+<tr>
+<td>System Identification Toolbox Version 9.7 (R2017b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Wavelet Toolbox Version 4.19 (R2017b)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="running-matlab-on-the-compute-nodes">Running Matlab on the Compute Nodes</h2>
+<p>Submitting a Matlab job to the cluster is very similar to submitting any other serial job. Lets try to run a simple Matlab script which we will put in a file <em>boxfilter.m</em></p>
+<p>boxfilter.m
+<div class="highlight"><pre><span></span><code>% Compute a <span class="nb">local</span> mean filter over a neighborhood of 11x11 pixels
+
+% Read image into workspace:
+<span class="nv">original</span> <span class="o">=</span> imread<span class="o">(</span><span class="s1">&#39;girlface.png&#39;</span><span class="o">)</span><span class="p">;</span>
+% Perform the mean filtering:
+<span class="nv">filtered</span> <span class="o">=</span> imboxfilt<span class="o">(</span>original, <span class="m">11</span><span class="o">)</span><span class="p">;</span>
+% Save the original and the filtered image side-by-side:
+imwrite<span class="o">([</span>original, filtered<span class="o">]</span>,<span class="s1">&#39;comparison.png&#39;</span><span class="o">)</span><span class="p">;</span>
+</code></pre></div></p>
+<p>Now we need a submission script</p>
+<p>boxfilter.qsub
+<div class="highlight"><pre><span></span><code>!#/bin/bash
+<span class="c1">#SBATCH -mail-user=foo@bar.unibe.ch</span>
+<span class="c1">#SBATCH --mail-type=end,fail</span>
+<span class="c1">#SBATCH --job-name=boxfilter</span>
+<span class="c1">#SBATCH --time=00:10:00</span>
+<span class="c1">#SBATCH --mem-per-cpu=2G</span>
+
+<span class="c1"># Load Matlab form the environment modules</span>
+module load matlab/R2015b
+<span class="c1"># Tell Matlab to run our box filter.m file and exit</span>
+matlab -nodisplay -r <span class="s2">&quot;boxfilter, exit&quot;</span>
+</code></pre></div></p>
+<h3 id="passing-arguments-to-a-m-file">Passing Arguments to a m-File</h3>
+<p>There are several ways to provide input arguments in Matlab.</p>
+<h4 id="define-the-variables-before-running-the-script">Define the Variables Before Running the Script</h4>
+<p>Lets take the box filter.m example from above. The script is not universal because the name of the input image and the box size is hardcoded in the script. We make the script more generally usable by:</p>
+<p><strong>boxfilter.m</strong></p>
+<div class="highlight"><pre><span></span><code>% Compute a <span class="nb">local</span> mean filter over a neighborhood of 11x11 pixels
+
+% Read image into workspace:
+<span class="nv">original</span> <span class="o">=</span> imread<span class="o">(</span>inputImg<span class="o">)</span><span class="p">;</span>
+% Perform the mean filtering:
+<span class="nv">filtered</span> <span class="o">=</span> imboxfilt<span class="o">(</span>original, x<span class="o">)</span><span class="p">;</span>
+% Save the original and the filtered image side-by-side:
+imwrite<span class="o">([</span>original, filtered<span class="o">]</span>,<span class="s1">&#39;comparison.png&#39;</span><span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+<p>and then:</p>
+<p><strong>boxfilter.qsub</strong></p>
+<div class="highlight"><pre><span></span><code>!#/bin/bash
+<span class="o">(</span>...<span class="o">)</span>
+<span class="c1"># Load Matlab form the environment modules</span>
+module load matlab/R2015b
+<span class="c1"># Tell Matlab to run our box filter.m file and exit</span>
+matlab -nodisplay -r <span class="s2">&quot;inputImg=&#39;girlface.png&#39;; x=11; boxfilter, exit&quot;</span>
+</code></pre></div>
+<h2 id="advanced-topics">Advanced Topics</h2>
+<h3 id="multithreading">Multithreading</h3>
+<p>By default, MATLAB makes use of the multithreading capabilities of the node on which it is running. It is crucial that you allocate the same number of slots for your job as your job utilizes cores.</p>
+<p><strong>Disable Computational Multithreading</strong></p>
+<p>If you do not need multithreading for your application consider to disable computational multithreading by setting the -singleCompThread option when starting MATLAB:</p>
+<div class="highlight"><pre><span></span><code>matlab -nodisplay -singleCompThread -r <span class="s2">&quot;boxfilter(&#39;girlface.png&#39;, &#39;comparison.png&#39;, 11); exit&quot;</span>
+</code></pre></div>
+<p><strong>Disable Computational Multithreading</strong>
+If you do not need multithreading for your application consider to disable computational multithreading by setting the -singleCompThread option when starting MATLAB:</p>
+<div class="highlight"><pre><span></span><code>matlab -nodisplay -singleCompThread -r <span class="s2">&quot;boxfilter(&#39;girlface.png&#39;, &#39;comparison.png&#39;, 11); exit&quot;</span>
+</code></pre></div>
+<p><strong>Running MATLAB in Multithreaded Mode</strong></p>
+<p>Most of the time, running MATLAB in single-threaded mode will meet your needs. If you have mathematically intense computations that might benefit from multi-threading capabilities provided by MATLAB&rsquo;s BLAS implementation, then you should limit MATLAB to a well defined number of threads, so that you can allocate the correct number of slots for your job. Use the maxNumCompThreads(N) function to control the number of computational threads:</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2020-08-24
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="JupyterLab.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: JupyterLab" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              JupyterLab
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="bzip2.html" class="md-footer__link md-footer__link--next" aria-label="Next: Parallel BZIP2" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Parallel BZIP2
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Memorial Sloan Kettering Cancer Center, High Performance Computing Group
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.mskcc.org/HPC/userdocs.git" target="_blank" rel="noopener" title="github.mskcc.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c2e1ee47.min.js"></script>
+      
+    
+  </body>
+</html>

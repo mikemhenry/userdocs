@@ -1,0 +1,1669 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.14">
+    
+    
+      
+        <title>Workspace management - HPC Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3de6f41f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/mskcc.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#workspace-management" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="HPC Documentation" class="md-header__button md-logo" aria-label="HPC Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HPC Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Workspace management
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.mskcc.org/HPC/userdocs.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HPC/userdocs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="HPC Documentation" class="md-nav__button md-logo" aria-label="HPC Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    HPC Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.mskcc.org/HPC/userdocs.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HPC/userdocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/news.html" class="md-nav__link">
+        Announcements
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start.html" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/ubelix-overview.html" class="md-nav__link">
+        MSKCC HPC system "LILAC"
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/account.html" class="md-nav__link">
+        Accounts and Activation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/login-ssh.html" class="md-nav__link">
+        Accessing the HPCs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/workspaces.html" class="md-nav__link">
+        Workspaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/ssh-customization.html" class="md-nav__link">
+        SSH customization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/shell.html" class="md-nav__link">
+        Shell customization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/parallelization.html" class="md-nav__link">
+        Parallelization
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Workspaces
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Workspaces" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Workspaces
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="workspaces.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Workspace management
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="management.html" class="md-nav__link md-nav__link--active">
+        Workspace management
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workspace-intention" class="md-nav__link">
+    Workspace Intention
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workspace-properties" class="md-nav__link">
+    Workspace Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Workspace Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ownership" class="md-nav__link">
+    Ownership
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#member-groups" class="md-nav__link">
+    Member groups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#free-of-charge-quota" class="md-nav__link">
+    Free Of Charge Quota
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-storage" class="md-nav__link">
+    Additional Storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#availability" class="md-nav__link">
+    Availability
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application" class="md-nav__link">
+    Application
+  </a>
+  
+    <nav class="md-nav" aria-label="Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisite" class="md-nav__link">
+    Prerequisite
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-form" class="md-nav__link">
+    Application Form
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workspace-modifications" class="md-nav__link">
+    Workspace modifications
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#investor-qos" class="md-nav__link">
+    Investor QoS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-bulk-users" class="md-nav__link">
+    Import Bulk Users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permission-background" class="md-nav__link">
+    Permission Background
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="environment.html" class="md-nav__link">
+        Software environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="monitoring.html" class="md-nav__link">
+        Monitoring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          LSF / Job handling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="LSF / Job handling" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          LSF / Job handling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/partitions.html" class="md-nav__link">
+        Partitions / QoS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/submission.html" class="md-nav__link">
+        Submitting jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/monitoring-jobs.html" class="md-nav__link">
+        Monitoring Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/deleting-jobs.html" class="md-nav__link">
+        Deleting Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/array-jobs.html" class="md-nav__link">
+        Array Jobs with Slurm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/dependencies.html" class="md-nav__link">
+        Job dependencies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/gpus.html" class="md-nav__link">
+        GPUs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/interactive-jobs.html" class="md-nav__link">
+        Interactive Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/investigating-job-failure.html" class="md-nav__link">
+        Investigating a Job Failure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/checkpointing.html" class="md-nav__link">
+        Checkpointing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/fair-share.html" class="md-nav__link">
+        Fair Share
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/hpc-modules.html" class="md-nav__link">
+        HPC software environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/installing-custom-software.html" class="md-nav__link">
+        Installing Custom Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/EasyBuild.html" class="md-nav__link">
+        EasyBuild
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          Supported Applications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Supported Applications" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Supported Applications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/Anaconda.html" class="md-nav__link">
+        Anaconda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/CUDA.html" class="md-nav__link">
+        CUDA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/JupyterLab.html" class="md-nav__link">
+        JupyterLab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/matlab.html" class="md-nav__link">
+        Matlab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/bzip2.html" class="md-nav__link">
+        Parallel BZIP2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/ParaView.html" class="md-nav__link">
+        ParaView
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/python.html" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/r.html" class="md-nav__link">
+        R
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/relion.html" class="md-nav__link">
+        Relion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/singularity.html" class="md-nav__link">
+        Singularity
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/terminal-multiplexer-tmux.html" class="md-nav__link">
+        Terminal Multiplexer (tmux)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Storage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/filesystem-overview.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/quota.html" class="md-nav__link">
+        Quota
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/file-transfer.html" class="md-nav__link">
+        Moving files to and from the HPCs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/scratch.html" class="md-nav__link">
+        Scratch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Optimization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Optimization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Optimization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimization/scaling.html" class="md-nav__link">
+        Scaling
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/investment.html" class="md-nav__link">
+        Investment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/support.html" class="md-nav__link">
+        Support
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/faq.html" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../halloffame.html" class="md-nav__link">
+        Hall of Fame
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workspace-intention" class="md-nav__link">
+    Workspace Intention
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workspace-properties" class="md-nav__link">
+    Workspace Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Workspace Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ownership" class="md-nav__link">
+    Ownership
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#member-groups" class="md-nav__link">
+    Member groups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#free-of-charge-quota" class="md-nav__link">
+    Free Of Charge Quota
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-storage" class="md-nav__link">
+    Additional Storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#availability" class="md-nav__link">
+    Availability
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application" class="md-nav__link">
+    Application
+  </a>
+  
+    <nav class="md-nav" aria-label="Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisite" class="md-nav__link">
+    Prerequisite
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-form" class="md-nav__link">
+    Application Form
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workspace-modifications" class="md-nav__link">
+    Workspace modifications
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#investor-qos" class="md-nav__link">
+    Investor QoS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-bulk-users" class="md-nav__link">
+    Import Bulk Users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permission-background" class="md-nav__link">
+    Permission Background
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.mskcc.org/HPC/userdocs.git/edit/main/docs/hpc-workspaces/management.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="workspace-management">Workspace management</h1>
+<h2 id="description">Description</h2>
+<p>This article targets Workspace managers. It covers applications, Workspace properties, up to modifications and suggested usage of Workspaces.</p>
+<h2 id="workspace-intention">Workspace Intention</h2>
+<p>Workspaces are group shared resources. This group could be for example:</p>
+<ul>
+<li>whole research group working together on shared data and software packages</li>
+<li>student(s) an their supervisor</li>
+<li>collaborating researchers from different research groups/institutes</li>
+<li>sub-group within the research group, which requires data separation</li>
+</ul>
+<h2 id="workspace-properties">Workspace Properties</h2>
+<h3 id="ownership">Ownership</h3>
+<p>HPC Workspaces manage compute and storage resources. Especially the freely available resources are meant to be shared between participating research groups. Therefore, the Workspaces belong to a beforehand registered research group.</p>
+<p>An HPC Workspace can be only requested by a <strong>research group leader</strong>, who responsible and accountable, since costly extensions can be added to the Workspace. 
+Additionally, a <strong>deputy</strong> can be nominated, who also can manage the Workspace (see <a href="#modification">Workspace Modification</a>). Owners and deputies are called <strong>Workspace managers</strong>. </p>
+<div class="admonition type note">
+<p class="admonition-title">Deputies</p>
+<p>Deputies have the same privileges than the owner, up to purchasing costly resources without additional notification. </p>
+</div>
+<p>If the workspace is meant to be for a <strong>collaboration of researchers</strong> from different research groups, you need to agree to one research group which is responsibilities and gets accounted for the resources. This research group leader need to request the workspace. </p>
+<h3 id="member-groups">Member groups</h3>
+<p>Each Workspace has two member groups:</p>
+<ul>
+<li>primary users with <strong>read and write</strong> access and</li>
+<li>secondary users with <strong>read only</strong> access</li>
+</ul>
+<p>Only members of the primary group can create and modify data, belonging to the Workspace, as well as submitting jobs to the Workspace account. The member lists are defined at Workspace application time and can be modified later. </p>
+<p>Members can be anyone with an UniBE Campus Account, but need to be registered for UBELIX usage, see <a href="../getting-Started/account.html#account-activation">Account Activation</a>.</p>
+<h3 id="free-of-charge-quota">Free Of Charge Quota</h3>
+<p>Every <strong>research group</strong> has <strong>10TB</strong> free of charge quota. This can be used within one or more Workspaces. The amount used per Workspace is set at application time and can be changed later within the limitation. </p>
+<h3 id="additional-storage">Additional Storage</h3>
+<p>Additional storage can be purchased for 50CHF per TB per year. 
+On the application or modification form an quota upper limit can be set. Accounted will be the actual usage. Therefore, the actual usage is monitored and twice a day. The average value of all data points is used for accounting. </p>
+<h3 id="availability">Availability</h3>
+<p>Storage is a limited and expensive resource. Abandoned, unused workspaces should be prevented by design. Therefore, an HPC Workspace has a default live time of one year. A notification will be send before the Workspace expiry. The Workspace expiry date can be changed at any time to any date within the next 365 days by any Workspace manager. 
+<a href="https://serviceportal.unibe.ch/sp?id=sc_cat_item&amp;sys_id=da846d3c1b9f9810f32fdc6a9b4bcbbd&amp;sysparm_category=6c6ba9631b88ac5023a5dd318b4bcb76">ServicePortal -&gt; Shop -&gt; HPC -&gt; Edit HPC Workspace</a> -&gt; Workspace Duratio</p>
+<h2 id="application">Application</h2>
+<h3 id="prerequisite">Prerequisite</h3>
+<p>Since we are sharing the HPC resources on basis of research groups, a registration of these is required. Only official University of Bern research groups can register. These need to be officially represented within the unibe.ch sites. Since research group definition are vague. In unclear situation please specify the responsible <strong>professor</strong>.</p>
+<p>Required information:</p>
+<ul>
+<li>research group <strong>name</strong></li>
+<li>research group <strong>responsible</strong>, in best case responsible <strong>professor</strong> <ul>
+<li>A long term responsible person, e.g. for data in case actual research group lead leaves university. Research group or topic need to be at least stated on the UniBE webpage.</li>
+</ul>
+</li>
+<li><strong>cost center</strong> for location in organizational tree (a UniBE cost center)<ul>
+<li>for determining the proper cost center, please ask YOUR UniBE secretary</li>
+</ul>
+</li>
+<li>official unibe.ch research group <strong>URL</strong>, where the research group name and research group head is mentioned</li>
+<li>research <strong>group ID</strong> which is merged with the institute ID. This code is used in the UBELIX file system tree</li>
+</ul>
+<p>Registration Form: <a href="https://serviceportal.unibe.ch/sp?id=sc_cat_item&amp;sys_id=3dd760551b0f145023a5dd318b4bcbe5&amp;sysparm_category=6c6ba9631b88ac5023a5dd318b4bcb76">Service Portal -&gt; Register Research Group</a></p>
+<div class="admonition note">
+<p>The request need to be verified manually. This may take some time. </p>
+</div>
+<h3 id="application-form">Application Form</h3>
+<p>An HPC Workspace can (only) be requested by a registered research group lead/manager using the ServicePortal application form:</p>
+<p><a href="https://serviceportal.unibe.ch/sp?id=sc_cat_item&amp;sys_id=259743301b8bd05023a5dd318b4bcba5&amp;sysparm_category=6c6ba9631b88ac5023a5dd318b4bcb76">Service Portal -&gt; Create HPC Workspace</a></p>
+<p>The following information are required:</p>
+<ul>
+<li>Workspace ID (max. 20 characters), please choose a unique name</li>
+<li>Workspace Name</li>
+<li>Workspace Description</li>
+<li>registered research group (see prerequisites)</li>
+<li>Deputy (permissions for managing the Workspace) (optional)</li>
+<li>Free Quota (see above)</li>
+<li>additional Storage (optional): an upper limit of quota, where the actual quota will be charged. When selected this requires a valid cost center for accounting. </li>
+<li>Cost Center (necessary when requesting Additional Storage)</li>
+<li>primary group members (all accounts need UBELIX activation beforehand)</li>
+<li>secondary group members (optional) (all accounts need UBELIX activation beforehand)
+member lists can be selected one by one or as a comma separated list of Campus accounts (see <a href="#import-bulk-user">Import Bulk User</a>)</li>
+</ul>
+<div class="admonition attention">
+<p>All members need to have their account activated for UBELIX, otherwise the process will fail and need manual intervention. See <a href="../getting-Started/account.html#account-activation">Account Activation</a></p>
+<p>If the requester only want to hold the managing position without UBELIX, the requester can remove his/her account from the primary member list. This can be changed any time.</p>
+</div>
+<div class="admonition type attention">
+<p class="admonition-title">Workspace ID</p>
+<p>The Workspace ID need to be a <strong>unique</strong> string. Please avoid duplications with user IDs, Research Group IDs and other Workspace names. </p>
+</div>
+<div class="admonition type note">
+<p class="admonition-title">processing time</p>
+<p>The Workspace creation for now relies on a temporary automatic process which is running only once a day at 20:00. In future the process will be much faster. </p>
+</div>
+<h2 id="workspace-modifications">Workspace modifications</h2>
+<p>After creation, owners and deputies can modify Workspace properties using the Service Portal Form:</p>
+<p><a href="https://serviceportal.unibe.ch/sp?id=sc_cat_item&amp;sys_id=da846d3c1b9f9810f32fdc6a9b4bcbbd&amp;sysparm_category=6c6ba9631b88ac5023a5dd318b4bcb76">Service Portal -&gt; Edit HPC Workspace</a></p>
+<p>Properties to change are:
+- adding/removing members to/from primary and secondary group
+- storage extension
+- Workspace live time extension
+- Workspace closure (so far you need to &ldquo;deactivate&rdquo; AND THEN &ldquo;delete&rdquo; the workspace)</p>
+<div class="admonition type">
+<p class="admonition-title">Note</p>
+<p>During the processing of a modification no other modification can be requested. The Workspace is even not visible in the ServicePortal for that time. 
+Most modification will be processed within few minutes, but adding non-free-of-charge features like additional storage, need human approval, which may delay the process. 
+The Workspace itself (file storage and Slurm, etc.) will not be interrupted by a change. </p>
+</div>
+<h2 id="investor-qos">Investor QoS</h2>
+<p>Investors get elevated priviledges for specific queues. These are managed in so called Slurm QoS (Quality of Service). Where in the past the investors specified a list of users, who can use the QoS, in future Workspaces are able to manage the QoS on Workspace level. Therefore, you need to open a request to add an existing QoS to a (list of) Workspace(s). The membership managment is done within the Workspace. </p>
+<div class="admonition type">
+<p class="admonition-title">Warning</p>
+<p>Investor QoS are bind to SLURM accounts. Since personal SLURM accounts get deactivated when joining an HPC Workspace, the investor QoS need to get transfered. This process is not done automatically, please request the transfer using our <a href="https://serviceportal.unibe.ch/hpc">ServicePortal</a></p>
+</div>
+<h2 id="import-bulk-users">Import Bulk Users</h2>
+<p>The &ldquo;Import Bulk Users&rdquo; field provides the possibility to list a larger set of members for primary or secondary group without selecting them one by one. There the members need to be specified as a comma seperated list of Campus Accounts (not full names). 
+Keep in mind: you need to specify the <strong>full</strong> list of members in these field. After leaving the field the upper primary/secondary member list will be replaced with this list.</p>
+<h2 id="permission-background">Permission Background</h2>
+<div class="admonition type note">
+<p>This sections provides more advanced information about the implementation of the permission handling for both permission groups. Nevertheless, we strongly suggest to keep default permissions. <code>-rw-rw-r--</code> for files and <code>drwxrwxr-x</code> for directories. </p>
+</div>
+<p>In Linux permissions are manged using: <code>user</code> (owner), <code>group</code> and <code>other</code>. <code>user</code> will always be the username creating the file/directory. In a Workspace the <code>group</code> will always be the Workspace primary group. This should (and this is default) get read/write permissions. The Workspace secondary group gets access to the Workspace main directory using ACLs. Then, within the Workspace these members acts as <code>other</code> and need to get read permissions. </p>
+<p>Thus a file:</p>
+<div class="highlight"><pre><span></span><code>-rw-rw-r--  <span class="m">2</span> user ws_group  <span class="m">4096</span> Jan <span class="m">01</span> <span class="m">09</span>:11 filename
+</code></pre></div>
+<p>can be modified by all members of the <code>ws_group</code> and read by everyone else (with access to that location, which is grated for secondary Workspace group members). And a file</p>
+<div class="highlight"><pre><span></span><code>-rw-rw----  <span class="m">2</span> user ws_group  <span class="m">4096</span> Jan <span class="m">01</span> <span class="m">09</span>:11 filename2
+</code></pre></div>
+<p>can be modified by all members of the <code>ws_group</code>, but NOT read by anyone else (even not secondary Workspace group members).</p>
+<p>Please, make sure that all your files and directories keep this permissions. In case of moving data from other locations, these could vary and can be corrected using:</p>
+<div class="highlight"><pre><span></span><code>find /storage/workspace/&lt;researchGroupID&gt;/&lt;workspaceID&gt;/ <span class="se">\</span>
+<span class="se">\(</span> -type f -exec chmod <span class="m">664</span> <span class="o">{}</span> <span class="se">\;</span> <span class="se">\)</span> , <span class="se">\</span>
+<span class="se">\(</span> -type d -exec chmod <span class="m">775</span> <span class="o">{}</span> <span class="se">\;</span> <span class="se">\)</span>
+</code></pre></div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2021-10-05
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="workspaces.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Overview
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="environment.html" class="md-footer__link md-footer__link--next" aria-label="Next: Software environment" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Software environment
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Memorial Sloan Kettering Cancer Center, High Performance Computing Group
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.mskcc.org/HPC/userdocs.git" target="_blank" rel="noopener" title="github.mskcc.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c2e1ee47.min.js"></script>
+      
+    
+  </body>
+</html>

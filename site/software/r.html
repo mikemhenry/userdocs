@@ -1,0 +1,1743 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.14">
+    
+    
+      
+        <title>R - HPC Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3de6f41f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/mskcc.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#r" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="HPC Documentation" class="md-header__button md-logo" aria-label="HPC Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HPC Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              R
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.mskcc.org/HPC/userdocs.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HPC/userdocs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="HPC Documentation" class="md-nav__button md-logo" aria-label="HPC Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    HPC Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.mskcc.org/HPC/userdocs.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HPC/userdocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/news.html" class="md-nav__link">
+        Announcements
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start.html" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/ubelix-overview.html" class="md-nav__link">
+        MSKCC HPC system "LILAC"
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/account.html" class="md-nav__link">
+        Accounts and Activation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/login-ssh.html" class="md-nav__link">
+        Accessing the HPCs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/workspaces.html" class="md-nav__link">
+        Workspaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/ssh-customization.html" class="md-nav__link">
+        SSH customization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/shell.html" class="md-nav__link">
+        Shell customization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/parallelization.html" class="md-nav__link">
+        Parallelization
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Workspaces
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Workspaces" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Workspaces
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc-workspaces/workspaces.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc-workspaces/management.html" class="md-nav__link">
+        Workspace management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc-workspaces/environment.html" class="md-nav__link">
+        Software environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc-workspaces/monitoring.html" class="md-nav__link">
+        Monitoring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          LSF / Job handling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="LSF / Job handling" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          LSF / Job handling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/partitions.html" class="md-nav__link">
+        Partitions / QoS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/submission.html" class="md-nav__link">
+        Submitting jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/monitoring-jobs.html" class="md-nav__link">
+        Monitoring Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/deleting-jobs.html" class="md-nav__link">
+        Deleting Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/array-jobs.html" class="md-nav__link">
+        Array Jobs with Slurm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/dependencies.html" class="md-nav__link">
+        Job dependencies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/gpus.html" class="md-nav__link">
+        GPUs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/interactive-jobs.html" class="md-nav__link">
+        Interactive Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/investigating-job-failure.html" class="md-nav__link">
+        Investigating a Job Failure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/checkpointing.html" class="md-nav__link">
+        Checkpointing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/fair-share.html" class="md-nav__link">
+        Fair Share
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hpc-modules.html" class="md-nav__link">
+        HPC software environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="installing-custom-software.html" class="md-nav__link">
+        Installing Custom Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="EasyBuild.html" class="md-nav__link">
+        EasyBuild
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          Supported Applications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Supported Applications" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Supported Applications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Anaconda.html" class="md-nav__link">
+        Anaconda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CUDA.html" class="md-nav__link">
+        CUDA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="JupyterLab.html" class="md-nav__link">
+        JupyterLab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="matlab.html" class="md-nav__link">
+        Matlab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="bzip2.html" class="md-nav__link">
+        Parallel BZIP2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ParaView.html" class="md-nav__link">
+        ParaView
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python.html" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="r.html" class="md-nav__link md-nav__link--active">
+        R
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-topics" class="md-nav__link">
+    Basic Topics
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customizing-the-r-workspace" class="md-nav__link">
+    Customizing the R Workspace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-packages" class="md-nav__link">
+    Installing Packages
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-into-a-shared-workspace" class="md-nav__link">
+    A) Into a shared Workspace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-into-your-home" class="md-nav__link">
+    B) Into your HOME
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-routine" class="md-nav__link">
+    Installation Routine
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-execution-of-r" class="md-nav__link">
+    Batch Execution of R
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-topics" class="md-nav__link">
+    Advanced Topics
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parallel-r" class="md-nav__link">
+    Parallel R
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-deseq2-from-bioconductor-packages" class="md-nav__link">
+    Installing DESeq2 from Bioconductor packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="relion.html" class="md-nav__link">
+        Relion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="singularity.html" class="md-nav__link">
+        Singularity
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="terminal-multiplexer-tmux.html" class="md-nav__link">
+        Terminal Multiplexer (tmux)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Storage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/filesystem-overview.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/quota.html" class="md-nav__link">
+        Quota
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/file-transfer.html" class="md-nav__link">
+        Moving files to and from the HPCs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/scratch.html" class="md-nav__link">
+        Scratch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Optimization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Optimization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Optimization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimization/scaling.html" class="md-nav__link">
+        Scaling
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/investment.html" class="md-nav__link">
+        Investment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/support.html" class="md-nav__link">
+        Support
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/faq.html" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../halloffame.html" class="md-nav__link">
+        Hall of Fame
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-topics" class="md-nav__link">
+    Basic Topics
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customizing-the-r-workspace" class="md-nav__link">
+    Customizing the R Workspace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-packages" class="md-nav__link">
+    Installing Packages
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-into-a-shared-workspace" class="md-nav__link">
+    A) Into a shared Workspace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-into-your-home" class="md-nav__link">
+    B) Into your HOME
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-routine" class="md-nav__link">
+    Installation Routine
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-execution-of-r" class="md-nav__link">
+    Batch Execution of R
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-topics" class="md-nav__link">
+    Advanced Topics
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parallel-r" class="md-nav__link">
+    Parallel R
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-deseq2-from-bioconductor-packages" class="md-nav__link">
+    Installing DESeq2 from Bioconductor packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.mskcc.org/HPC/userdocs.git/edit/main/docs/software/r.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="r">R</h1>
+<h2 id="description">Description</h2>
+<p>R is provided by an environment module and must be loaded explicitly:</p>
+<div class="highlight"><pre><span></span><code>module load R <span class="c1">##OR## module load R/3.4.4-foss-2018a-X11-20180131</span>
+R --version
+  R version <span class="m">4</span>.0.0 <span class="o">(</span><span class="m">2020</span>-04-24<span class="o">)</span> -- <span class="s2">&quot;Arbor Day&quot;</span>
+  ...
+</code></pre></div>
+<p>The <strong>Vital-IT project</strong> is also providing some versions. The following commands will list the available versions:</p>
+<div class="highlight"><pre><span></span><code>module load vital-it
+module avail <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> grep <span class="s2">&quot; R\/&quot;</span>
+  R/3.4.2
+  R/latest
+</code></pre></div>
+<p>To use one of these version, you have to load the respective module, which then masks the system&rsquo;s version, i.e.</p>
+<div class="highlight"><pre><span></span><code>module load vital-it
+module load R/3.4.2
+</code></pre></div>
+<div class="admonition types danger">
+<p>Do not forget to put those two lines into your job script as well in order to use the same version from within the job later on a compute node!</p>
+</div>
+<h2 id="basic-topics">Basic Topics</h2>
+<h3 id="customizing-the-r-workspace">Customizing the R Workspace</h3>
+<p>At startup, unless &ndash;no-init-file, or &ndash;vanilla was given, R searches for a user profile in the current directory (from where R was started), or in the user&rsquo;s home directory (in that order). A different path of the user profile file can be specified by the R_PROFILE_USER environment variable. The found user profile is then sourced into the workspace. You can use this file to customize your workspace, i.e., to set specific options, define functions, load libraries, and so on. Consider the following example:</p>
+<p><strong>.Rprofile</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Set some options</span>
+options<span class="o">(</span><span class="nv">stringsAsFactors</span><span class="o">=</span>FALSE<span class="o">)</span>
+options<span class="o">(</span>max.print<span class="o">=</span><span class="m">100</span><span class="o">)</span>
+options<span class="o">(</span><span class="nv">scipen</span><span class="o">=</span><span class="m">10</span><span class="o">)</span>
+
+<span class="c1"># Load  class library</span>
+library<span class="o">(</span>class<span class="o">)</span>
+
+<span class="c1"># Don&#39;t save workspace by default</span>
+q &lt;- <span class="k">function</span> <span class="o">(</span><span class="nv">save</span><span class="o">=</span><span class="s2">&quot;no&quot;</span>, ...<span class="o">)</span> <span class="o">{</span>
+  quit<span class="o">(</span><span class="nv">save</span><span class="o">=</span>save, ...<span class="o">)</span>
+<span class="o">}</span>
+
+<span class="c1"># User-defined function for setting standard seed</span>
+mySeed &lt;- <span class="k">function</span><span class="o">()</span> set.seed<span class="o">(</span><span class="m">5450</span><span class="o">)</span>
+
+
+<span class="c1"># User-defined function for calculating L1/L2-norm, returns euclidean distance (L2-norm) by default</span>
+myDistance &lt;- <span class="k">function</span><span class="o">(</span>x, y, <span class="nv">type</span><span class="o">=</span>c<span class="o">(</span><span class="s2">&quot;Euclidean&quot;</span>, <span class="s2">&quot;L2&quot;</span>, <span class="s2">&quot;Manhattan&quot;</span>, <span class="s2">&quot;L1&quot;</span><span class="o">))</span> <span class="o">{</span>
+  <span class="nb">type</span> &lt;- match.arg<span class="o">(</span><span class="nb">type</span><span class="o">)</span>
+  <span class="k">if</span> <span class="o">((</span><span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;Manhattan&quot;</span><span class="o">)</span> <span class="p">|</span> <span class="o">(</span><span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;L1&quot;</span><span class="o">))</span> <span class="o">{</span>
+    d &lt;- sum<span class="o">(</span> abs<span class="o">(</span>x - y<span class="o">)</span> <span class="o">)</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    d &lt;- sqrt<span class="o">(</span> sum<span class="o">(</span> <span class="o">(</span>x - y<span class="o">)</span> ^ <span class="m">2</span><span class="o">)</span> <span class="o">)</span>
+  <span class="o">}</span>
+  <span class="k">return</span><span class="o">(</span>d<span class="o">)</span>
+<span class="o">}</span>
+</code></pre></div></p>
+<h3 id="installing-packages">Installing Packages</h3>
+<p>R is installed as global Module in various versions. There are already a longer list of pre-installed packages available. If you need additional packages you can install them by yourself. The default location would be the R installation directory, which is not writeable for users. Nevertheless, in the following is shown how to install into a shared HPC Workspace or into your private HOME. </p>
+<h4 id="a-into-a-shared-workspace">A) Into a shared Workspace</h4>
+<p>With the Workspace tools we provide short-cuts to install R packages in the shared Workspace location. Therefore, the environment variable <code>$R_LIBS</code> is set to <code>$WORKSPACE/RPackages</code>. Initially this directory need to be created, using:</p>
+<p><div class="highlight"><pre><span></span><code>module load Workspace
+mkdir <span class="nv">$R_LIBS</span>
+</code></pre></div>
+If you get the error <code>mkdir: cannot create directory ...</code> verify that you just loaded one Workspace while installing the package.</p>
+<p>Then R packages can be installed using the <code>install.packages()</code> routine in an interactive R shell, e.g. for <strong>doParallel</strong>:</p>
+<div class="highlight"><pre><span></span><code>module load R
+R
+...
+&gt; install.packages(&quot;doParallel&quot;)
+</code></pre></div>
+<p>Please follow the procedure as shown below at <a href="#installation-routine">installation routine</a>.</p>
+<p>Then the installed packaged will be available to you and all other Workspace members by simply loading the <code>Workspace</code> module. </p>
+<div class="admonition type danger">
+<p>Please remember to add the Workspace and the R module to your job scripts:
+<div class="highlight"><pre><span></span><code>module load Workspace
+module load R
+</code></pre></div></p>
+</div>
+<h4 id="b-into-your-home">B) Into your HOME</h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>you can also use procedure A) and load <code>Workspace_Home</code> to install into your HOME directory.</p>
+</div>
+<p>If you are not using a Workspace module and try to install a package, at the first time R tries to install the package into a global/generic location, which is not writeable by users. You can then select to install in a &ldquo;personal library&rdquo; into your HOME:</p>
+<div class="highlight"><pre><span></span><code>module load R
+R
+&gt; install.packages<span class="o">(</span><span class="s2">&quot;doParallel&quot;</span><span class="o">)</span>
+Installing package into ‘/usr/lib64/R/library’
+<span class="o">(</span>as ‘lib’ is unspecified<span class="o">)</span>
+Warnung <span class="k">in</span> install.packages<span class="o">(</span><span class="s2">&quot;doParallel&quot;</span><span class="o">)</span>
+  <span class="err">&#39;</span><span class="nv">lib</span> <span class="o">=</span> <span class="s2">&quot;/usr/lib64/R/library&quot;</span> ist nicht schreibbar
+Would you like to use a personal library instead?  <span class="o">(</span>y/n<span class="o">)</span>
+</code></pre></div>
+<p>Next, type &ldquo;y&rdquo; to create your personal library at the default location within your HOME directory:</p>
+<div class="highlight"><pre><span></span><code>Would you like to create a personal library
+~/R/x86_64-redhat-linux-gnu-library/4.0
+</code></pre></div>
+<h4 id="installation-routine">Installation Routine</h4>
+<p>Next, select a CRAN mirror to download from. The mirror list will be not the same as below. The mirror list is constantly changing, but will look like it.</p>
+<p>Pick any country nearby, i.e. Switzerland. If https makes problems, pick &ldquo;(HTTP mirrors)&rdquo; and then select something nearby as shown below</p>
+<div class="highlight"><pre><span></span><code>--- Bitte einen CRAN Spiegel für diese Sitzung auswählen ---
+Error <span class="k">in</span> download.file<span class="o">(</span>url, <span class="nv">destfile</span> <span class="o">=</span> f, <span class="nv">quiet</span> <span class="o">=</span> TRUE<span class="o">)</span> :
+  nicht unterstütztes URL Schema
+HTTPS CRAN mirror
+ <span class="m">1</span>: <span class="m">0</span>-Cloud <span class="o">[</span>https<span class="o">]</span>                <span class="m">2</span>: Austria <span class="o">[</span>https<span class="o">]</span>
+ <span class="m">3</span>: Chile <span class="o">[</span>https<span class="o">]</span>                  <span class="m">4</span>: China <span class="o">(</span>Beijing <span class="m">4</span><span class="o">)</span> <span class="o">[</span>https<span class="o">]</span>
+ <span class="m">5</span>: Colombia <span class="o">(</span>Cali<span class="o">)</span> <span class="o">[</span>https<span class="o">]</span>        <span class="m">6</span>: France <span class="o">(</span>Lyon <span class="m">2</span><span class="o">)</span> <span class="o">[</span>https<span class="o">]</span>
+ <span class="m">7</span>: France <span class="o">(</span>Paris <span class="m">2</span><span class="o">)</span> <span class="o">[</span>https<span class="o">]</span>       <span class="m">8</span>: Germany <span class="o">(</span>Münster<span class="o">)</span> <span class="o">[</span>https<span class="o">]</span>
+ <span class="m">9</span>: Iceland <span class="o">[</span>https<span class="o">]</span>               <span class="m">10</span>: Mexico <span class="o">(</span>Mexico City<span class="o">)</span> <span class="o">[</span>https<span class="o">]</span>
+<span class="m">11</span>: Russia <span class="o">(</span>Moscow<span class="o">)</span> <span class="o">[</span>https<span class="o">]</span>       <span class="m">12</span>: Spain <span class="o">(</span>A Coruña<span class="o">)</span> <span class="o">[</span>https<span class="o">]</span>
+<span class="m">13</span>: Switzerland <span class="o">[</span>https<span class="o">]</span>           <span class="m">14</span>: UK <span class="o">(</span>Bristol<span class="o">)</span> <span class="o">[</span>https<span class="o">]</span>
+<span class="m">15</span>: UK <span class="o">(</span>Cambridge<span class="o">)</span> <span class="o">[</span>https<span class="o">]</span>        <span class="m">16</span>: USA <span class="o">(</span>CA <span class="m">1</span><span class="o">)</span> <span class="o">[</span>https<span class="o">]</span>
+<span class="m">17</span>: USA <span class="o">(</span>KS<span class="o">)</span> <span class="o">[</span>https<span class="o">]</span>              <span class="m">18</span>: USA <span class="o">(</span>MI <span class="m">1</span><span class="o">)</span> <span class="o">[</span>https<span class="o">]</span>
+<span class="m">19</span>: USA <span class="o">(</span>TN<span class="o">)</span> <span class="o">[</span>https<span class="o">]</span>              <span class="m">20</span>: USA <span class="o">(</span>TX<span class="o">)</span> <span class="o">[</span>https<span class="o">]</span>
+<span class="m">21</span>: USA <span class="o">(</span>WA<span class="o">)</span> <span class="o">[</span>https<span class="o">]</span>              <span class="m">22</span>: <span class="o">(</span>HTTP mirrors<span class="o">)</span>
+
+Selection: <span class="m">22</span>
+HTTP CRAN mirror
+ <span class="m">1</span>: <span class="m">0</span>-Cloud                       <span class="m">2</span>: Algeria
+ <span class="m">3</span>: Argentina <span class="o">(</span>La Plata<span class="o">)</span>          <span class="m">4</span>: Australia <span class="o">(</span>Canberra<span class="o">)</span>
+ <span class="m">5</span>: Australia <span class="o">(</span>Melbourne<span class="o">)</span>         <span class="m">6</span>: Austria
+ <span class="m">7</span>: Belgium <span class="o">(</span>Antwerp<span class="o">)</span>             <span class="m">8</span>: Belgium <span class="o">(</span>Ghent<span class="o">)</span>
+<span class="o">(</span>...<span class="o">)</span>
+<span class="m">65</span>: Slovakia                     <span class="m">66</span>: South Africa <span class="o">(</span>Cape Town<span class="o">)</span>
+<span class="m">67</span>: South Africa <span class="o">(</span>Johannesburg<span class="o">)</span>  <span class="m">68</span>: Spain <span class="o">(</span>A Coruña<span class="o">)</span>
+<span class="m">69</span>: Spain <span class="o">(</span>Madrid<span class="o">)</span>               <span class="m">70</span>: Sweden
+<span class="m">71</span>: Switzerland                  <span class="m">72</span>: Taiwan <span class="o">(</span>Chungli<span class="o">)</span>
+<span class="m">73</span>: Taiwan <span class="o">(</span>Taipei<span class="o">)</span>              <span class="m">74</span>: Thailand
+<span class="m">75</span>: Turkey <span class="o">(</span>Denizli<span class="o">)</span>             <span class="m">76</span>: Turkey <span class="o">(</span>Mersin<span class="o">)</span>
+<span class="o">(</span>...<span class="o">)</span>
+<span class="m">93</span>: USA <span class="o">(</span>OH <span class="m">2</span><span class="o">)</span>                   <span class="m">94</span>: USA <span class="o">(</span>OR<span class="o">)</span>
+<span class="m">95</span>: USA <span class="o">(</span>PA <span class="m">2</span><span class="o">)</span>                   <span class="m">96</span>: USA <span class="o">(</span>TN<span class="o">)</span>
+<span class="m">97</span>: USA <span class="o">(</span>TX<span class="o">)</span>                     <span class="m">98</span>: USA <span class="o">(</span>WA<span class="o">)</span>
+<span class="m">99</span>: Venezuela
+Selection: <span class="m">71</span>
+</code></pre></div>
+<p>Finally, the package gets installed. After installing the package you can close the interactive session by typing q().</p>
+<p>Do not forget to load the corresponding library (for each R session) before using functions provided by the package:</p>
+<div class="highlight"><pre><span></span><code>&gt; library<span class="o">(</span>doParallel<span class="o">)</span>
+</code></pre></div>
+<h3 id="batch-execution-of-r">Batch Execution of R</h3>
+<p>The syntax for running R non-interactively with input read from <em>infile</em> and output send to <em>outfile</em> is:</p>
+<div class="highlight"><pre><span></span><code>R CMD BATCH <span class="o">[</span>options<span class="o">]</span> infile <span class="o">[</span>outfile<span class="o">]</span>
+</code></pre></div>
+<p>Suppose you placed your R code in a file called foo.R:</p>
+<p><strong>foo.R</strong></p>
+<div class="highlight"><pre><span></span><code>set.seed<span class="o">(</span><span class="m">3000</span><span class="o">)</span>
+valx&lt;-seq<span class="o">(</span>-2,2,0.01<span class="o">)</span>
+valy&lt;-2*valx+rnorm<span class="o">(</span>length<span class="o">(</span>valx<span class="o">)</span>,0,4<span class="o">)</span>
+<span class="c1"># Save plot to pdf</span>
+pdf<span class="o">(</span><span class="s1">&#39;histplot.pdf&#39;</span><span class="o">)</span>
+hist<span class="o">(</span>valy,prob<span class="o">=</span>TRUE,breaks<span class="o">=</span><span class="m">20</span>, <span class="nv">main</span><span class="o">=</span><span class="s2">&quot;Histogram and PDF&quot;</span>,xlab<span class="o">=</span><span class="s2">&quot;y&quot;</span>, <span class="nv">ylim</span><span class="o">=</span>c<span class="o">(</span><span class="m">0</span>,0.15<span class="o">))</span>
+curve<span class="o">(</span>dnorm<span class="o">(</span>x,mean<span class="o">(</span>valy<span class="o">)</span>,sd<span class="o">(</span>valy<span class="o">))</span>,add<span class="o">=</span>T,col<span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="o">)</span>
+dev.off<span class="o">()</span>
+</code></pre></div>
+<p>To execute foo.R on the cluster, add the R call to your job script&hellip;</p>
+<p><strong>Rbatch.sh</strong></p>
+<div class="highlight"><pre><span></span><code><span class="ch">#! /bin/bash</span>
+<span class="c1">#SBATCH --mail-user=&lt;put your valid email address here!&gt;</span>
+<span class="c1">#SBATCH --mail-type=end,fail</span>
+<span class="c1">#SBATCH --time=01:00:00</span>
+<span class="c1">#SBATCH --mem-per-cpu=2G</span>
+
+<span class="c1"># Put your code below this line</span>
+module load vital-it
+module load R/3.4.2
+R CMD BATCH --no-save --no-restore foo.R
+</code></pre></div>
+<p>&hellip;and submit your job script to the cluster:</p>
+<div class="highlight"><pre><span></span><code>sbatch Rbatch.sh
+</code></pre></div>
+<h2 id="advanced-topics">Advanced Topics</h2>
+<h3 id="parallel-r">Parallel R</h3>
+<p>By default, R will not make use of multiple cores available on compute nodes to parallelize computations. Parallel processing functionality is provided by add-on packages. Consider the following contrived example to get you started. To follow the example, you need the following packages installed, and the corresponding libraries loaded:</p>
+<div class="highlight"><pre><span></span><code>&gt; library<span class="o">(</span>doParallel<span class="o">)</span>
+&gt; library<span class="o">(</span>foreach<span class="o">)</span>
+</code></pre></div>
+<p>The foreach package provides a looping construct for executing R statements repeatedly, either sequentially (similar to a for loop) or in parallel. While the binary operator %do% is used for executing the statements sequentially, the %dopar% operator is used to execute code in parallel using the currently registered backend. The getDoParWorkers() function returns the number of execution workers (cores) available in the currently registered doPar backend, by default this corresponds to one worker:</p>
+<div class="highlight"><pre><span></span><code>&gt; getDoParWorkers<span class="o">()</span>
+<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">1</span>
+</code></pre></div>
+<p>Hence, the following R code will execute on a single core (even with the %dopar% operator):</p>
+<div class="highlight"><pre><span></span><code>&gt; start.time &lt;- Sys.time<span class="o">()</span>
+&gt; foreach<span class="o">(</span><span class="nv">i</span><span class="o">=</span><span class="m">4</span>:1, .combine<span class="o">=</span><span class="s1">&#39;c&#39;</span>, .inorder<span class="o">=</span>FALSE<span class="o">)</span> %dopar% <span class="o">{</span>
++ Sys.sleep<span class="o">(</span><span class="m">3</span>*i<span class="o">)</span>
++ i
++ <span class="o">}</span>
+end.time &lt;- Sys.time<span class="o">()</span>
+exec.time &lt;- end.time - start.time
+<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">4</span> <span class="m">3</span> <span class="m">2</span> <span class="m">1</span>
+</code></pre></div>
+<p>Let&rsquo;s measure the runtime of the sequentiall execution:</p>
+<div class="highlight"><pre><span></span><code>&gt; start.time &lt;- Sys.time<span class="o">()</span><span class="p">;</span> foreach<span class="o">(</span><span class="nv">i</span><span class="o">=</span><span class="m">4</span>:1, .combine<span class="o">=</span><span class="s1">&#39;c&#39;</span>, .inorder<span class="o">=</span>TRUE<span class="o">)</span> %dopar% <span class="o">{</span> Sys.sleep<span class="o">(</span><span class="m">3</span>*i<span class="o">)</span><span class="p">;</span> i <span class="o">}</span><span class="p">;</span> end.time &lt;- Sys.time<span class="o">()</span><span class="p">;</span> exec.time &lt;- end.time - start.time<span class="p">;</span> exec.time
+<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">4</span> <span class="m">3</span> <span class="m">2</span> <span class="m">1</span>
+Time difference of <span class="m">30</span>.04088 secs
+</code></pre></div>
+<p>Now, we will register a parallel backend to allow the %dopar% operator to execute in parallel. The doParallel package provides a parallel backend for the %dopar% operator. Let&rsquo;s find out the number of cores available on the current node</p>
+<div class="highlight"><pre><span></span><code>&gt; detectCores<span class="o">()</span>
+<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">24</span>
+</code></pre></div>
+<p>To register the doPar backend call the function registerDoParallel(). With no arguments provided, the number of cores assigned to the backend matches the value of <em>options(&ldquo;cores&rdquo;)</em>, or if not set, to half of the cores detected by the parallel package. </p>
+<div class="highlight"><pre><span></span><code> registerDoParallel<span class="o">()</span>
+&gt; getDoParWorkers<span class="o">()</span>
+<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">12</span>
+</code></pre></div>
+<p>To assign 4 cores to the parallel backend:</p>
+<div class="highlight"><pre><span></span><code>&gt; registerDoParallel<span class="o">(</span><span class="nv">cores</span><span class="o">=</span><span class="m">4</span><span class="o">)</span>
+&gt; getDoParWorkers<span class="o">()</span>
+<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">4</span>
+</code></pre></div>
+<div class="admonition types caution">
+<p class="admonition-title">Request the correct number of slots</p>
+<p>Because it is crucial to request the correct number of slots for a parallel job, we propose to set the number of cores for the doPar backend to the number of slots allocated to your job:
+<code>registerDoParallel(cores=Sys.getenv("SLURM_CPUS_PER_TASK"))</code></p>
+</div>
+<p>Now, run the example again:</p>
+<div class="highlight"><pre><span></span><code>&gt; foreach<span class="o">(</span><span class="nv">i</span><span class="o">=</span><span class="m">4</span>:1, .combine<span class="o">=</span><span class="s1">&#39;c&#39;</span>, .inorder<span class="o">=</span>FALSE<span class="o">)</span> %dopar% <span class="o">{</span>
++ Sys.sleep<span class="o">(</span><span class="m">3</span>*i<span class="o">)</span>
++ i
++ <span class="o">}</span>
+<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">4</span> <span class="m">3</span> <span class="m">2</span> <span class="m">1</span>
+</code></pre></div>
+<p>Well, the output is basically the same (the results are combined in the same order!). Let&rsquo;s again measure the runtime of the parallel execution on 4 cores:</p>
+<div class="admonition types caution">
+<p class="admonition-title">The binary operator %do% will always execute a foreach-loop sequentially even if registerDoParallel was called before! To correctly run a foreach in parallel, two conditions must be met:</p>
+<ul>
+<li>registerDoParallel() must be called with a certain number of cores</li>
+<li>The %dopar% operator must be used in the foreach-loop to have it run in parallel!</li>
+</ul>
+</div>
+<h3 id="installing-deseq2-from-bioconductor-packages">Installing DESeq2 from Bioconductor packages</h3>
+<p>DESeq2<sup id="fnref:1)"><a class="footnote-ref" href="#fn:1)">1</a></sup> installed from Bioconductor<sup id="fnref:2)"><a class="footnote-ref" href="#fn:2)">2</a></sup> has many dependencies. Two odd facts are hindering a succesful build of DESeq2 in first place:</p>
+<ul>
+<li>data.table is needed by Hmisc, which in turn is needed by DESeq2. While Hmisc is automatically installed prior to DESeq2, data.table is not and has to be installed manually first.</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1)">
+<p><a href="https://bioconductor.org/packages/release/bioc/html/DESeq2.html">https://bioconductor.org/packages/release/bioc/html/DESeq2.html</a>&#160;<a class="footnote-backref" href="#fnref:1)" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2)">
+<p><a href="https://bioconductor.org/">https://bioconductor.org/</a>&#160;<a class="footnote-backref" href="#fnref:2)" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2021-10-23
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="python.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Python" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Python
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="relion.html" class="md-footer__link md-footer__link--next" aria-label="Next: Relion" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Relion
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Memorial Sloan Kettering Cancer Center, High Performance Computing Group
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.mskcc.org/HPC/userdocs.git" target="_blank" rel="noopener" title="github.mskcc.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c2e1ee47.min.js"></script>
+      
+    
+  </body>
+</html>
