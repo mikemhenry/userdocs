@@ -7,7 +7,7 @@ This documentation project makes use of [MkDocs Material Design Theme](https://s
 
 ## Contributing
 
-Everybody is invited to contribute to the doucmentation. If you find that certain topics
+Everybody is invited to contribute to the documentation. If you find that certain topics
 are not sufficiently covered or difficult to understand, you can fork this repository,
 fix the respective part and then send us a pull request. Even for such small things like
 typos! Yes, really, we appreciate your effort!
