@@ -70,6 +70,8 @@ copyright: 'Copyright &copy; Memorial Sloan Kettering Cancer Center, High Perfor
 repo_name: 'HPC/userdocs'
 repo_url: 'https://github.mskcc.org/HPC/userdocs.git'
 edit_uri: 'edit/main/docs'
+site_dir: 'docs'
+docs_dir: 'docs-src'
 
 # Configuration
 theme:
