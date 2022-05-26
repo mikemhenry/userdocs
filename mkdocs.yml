@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 site_name: MSKCC HELLOOO HPC Documentation
+=======
+site_name: MSKCC HPC Documentation
+>>>>>>> origin/jc-pages
 
 use_directory_urls: false
 nav:
