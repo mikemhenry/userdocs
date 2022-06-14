@@ -5,7 +5,7 @@
 Official documentation site of the high performance computing and the HPC
 cluster Lilac.
 
-Currently, the Lilac cluster runs about 330 compute nodes featuring almost
+The Lilac cluster runs about 330 compute nodes featuring almost
 6'300 CPU cores and about 300'000 GPU cores. The infrastructure is available
 to all faculties for their scientific work. The cluster can also be
 used by students within a scope of a thesis or a course.
