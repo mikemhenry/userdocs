@@ -77,7 +77,7 @@ In the following example script, all files from the submitting directory are cop
 #SBATCH --nodes 1
 #SBATCH --ntasks 1
 #SBATCH --cpus-per-task 1
-###SBATCH --output slurm.out # when specifying output file name, add rm slurm.out in cleanup function
+###SBATCH --output lsf.out # when specifying output file name, add rm lsf.out in cleanup function
 
 # I. Define directory names [DO NOT CHANGE]
 # =========================================
@@ -85,7 +85,7 @@ In the following example script, all files from the submitting directory are cop
 workdir="${TMPDIR}"
 # get submit directory
 # (every file/folder below this directory is copied to the compute node)
-submitdir="${SLURM_SUBMIT_DIR}"
+submitdir="${lsf_SUBMIT_DIR}"
 
 # 1. Transfer to node [DO NOT CHANGE]
 # ===================================
@@ -110,7 +110,7 @@ cd ${workdir}
 # define clean-up function
 function clean_up {
   # - remove log-file on the compute-node, to prevent overwiting actual output with empty file
-  rm slurm-${SLURM_JOB_ID}.out
+  rm lsf-${lsf_JOB_ID}.out
   # - TODO delete temporary files from the compute-node, before copying. Prevent copying unnecessary files.
   # rm -r ...
   # - change directory to the location of the sbatch command (on the head node)
@@ -124,7 +124,7 @@ function clean_up {
   exit
 }
 
-# call "clean_up" function when this script exits, it is run even if SLURM cancels the job
+# call "clean_up" function when this script exits, it is run even if lsf cancels the job
 trap 'clean_up' EXIT
 
 # 2. Execute [MODIFY COMPLETELY TO YOUR NEEDS]

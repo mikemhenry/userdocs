@@ -103,11 +103,11 @@ Depending on the package and its target usage one or more software stacks should
 
 ## Installation
 After selecting the package installation recipe and the target software stack, the installation process can be submitted. 
-With the following commands, SLURM job files will be created, and submitted to the desired compute nodes. There the packages are build and module files created. The general syntax is: 
+With the following commands, lsf job files will be created, and submitted to the desired compute nodes. There the packages are build and module files created. The general syntax is: 
 ```Bash
 eb_install_{all,generic} [options] [easybuild options] <easyconfig>.eb
 ```
-Additional SLURM arguments can be selected using the `--slurm-args` option, e.g. `--slurm-args='--account=xyz --time=00:10:00 --cpus-per-task'`. If specific architectures should be selected use e.g. `--arch='broadwell ivy'`. After this options, EasyBuild arguments can be provided without prefix, e.g. `--robot`. 
+Additional lsf arguments can be selected using the `--lsf-args` option, e.g. `--lsf-args='--account=xyz --time=00:10:00 --cpus-per-task'`. If specific architectures should be selected use e.g. `--arch='broadwell ivy'`. After this options, EasyBuild arguments can be provided without prefix, e.g. `--robot`. 
 
 Few examples:
 
@@ -130,7 +130,7 @@ The job output is presented in the `eb_out.*` files, one for each architecture.
 If the build could not be finished in the default time of 1h, the walltime can be extended using:
 
 ```Bash
-eb-install-all --robot --slurm-args='--time=05:00:00' ...
+eb-install-all --robot --lsf-args='--time=05:00:00' ...
 ```
 
 !!! note "Note"

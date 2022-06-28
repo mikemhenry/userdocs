@@ -116,7 +116,7 @@ computations to the compute nodes - by generating a job script and sending it to
 !!! hint "Working interactively on a compute node"
     When developing stuff it's often useful to have short iterations of try-error. Therefore it's also possible to work
     interactively on a compute node for a certain amount of time without having to send jobs to the cluster and wait until
-    they finish just to see it didn't work. See [Interactive Jobs](slurm/interactive-jobs.md) for more information about this topic.
+    they finish just to see it didn't work. See [Interactive Jobs](lsf/interactive-jobs.md) for more information about this topic.
 
 
 It's now time for your first job script. To do some work on the cluster, you require certain resources (e.g. CPUs and memory) and a description of the computations to be done. A job consists of instructions to the scheduler in the form of option flags, and statements that describe the actual tasks. Let's start with the instructions to the scheduler:
@@ -131,7 +131,7 @@ It's now time for your first job script. To do some work on the cluster, you req
 ...
 ```
 
-The first line makes sure that the file is executed using the bash shell. The remaining lines are option flags used by the `sbatch` command. The page [Jobs Submission](slurm/submission.md) outlines the most important options of `sbatch`.
+The first line makes sure that the file is executed using the bash shell. The remaining lines are option flags used by the `sbatch` command. The page [Jobs Submission](lsf/submission.md) outlines the most important options of `sbatch`.
 
 Now, let's write a simple "hello, world"-task:
 
@@ -172,7 +172,7 @@ sbatch first.sh
 Submitted batch job 32490640
 ```
 If the job is submitted successfully, the command outputs a job-ID with which you can refer to your job later on.
-There are various options for different types of jobs provided in the scheduler. See sections [Array Jobs](slurm/array-jobs.md), [GPUs](slurm/gpus.md), and [Interactive Jobs](slurm/interactive-jobs.md) for more information
+There are various options for different types of jobs provided in the scheduler. See sections [Array Jobs](lsf/array-jobs.md), [GPUs](lsf/gpus.md), and [Interactive Jobs](lsf/interactive-jobs.md) for more information
 
 ## Monitor Your Job
 
@@ -188,7 +188,7 @@ squeue --job=32490640
 
 Here you can see that the job 'job01' with job-ID 32490640 is in state RUNNING (R).
 The job is running in the 'epyc2' partition (default partition) on bnode23 for 22 seconds.
-It is also possible that the job can not start immediately after submitting it to SLURM
+It is also possible that the job can not start immediately after submitting it to lsf
 because the requested resources are not yet available. In this case, the output could
 look like this:
 
@@ -210,8 +210,8 @@ squeue --user=testuser
 ```
 ```no-highlight
       JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-   34651451     epyc2 slurm.sh  testuser PD       0:00      2 (Priority)
-   34651453     epyc2 slurm.sh  testuser PD       0:00      2 (Priority)
+   34651451     epyc2 lsf.sh  testuser PD       0:00      2 (Priority)
+   34651453     epyc2 lsf.sh  testuser PD       0:00      2 (Priority)
    29143227     epyc2     Rjob  testuser PD       0:00      4 (JobHeldUser)
    37856328       bdw   mpi.sh  testuser  R       4:38      2 anode[012-014]
    32634559       bdw  fast.sh  testuser  R    2:52:37      1 anode12
@@ -220,7 +220,7 @@ squeue --user=testuser
    32633556       bdw  fast.sh  testuser  R    4:36:10      1 anode08
 ```
 
-Further information on on job monitoring you find on page [Monitoring Jobs](slurm/monitoring-jobs.md). Furthermore, in the *Job handling* section you find additional information about [Investigating a Job Failure](slurm/investigating-job-failure.md) and [Check-pointing](slurm/checkpointing.md). 
+Further information on on job monitoring you find on page [Monitoring Jobs](lsf/monitoring-jobs.md). Furthermore, in the *Job handling* section you find additional information about [Investigating a Job Failure](lsf/investigating-job-failure.md) and [Check-pointing](lsf/checkpointing.md). 
 
 
 

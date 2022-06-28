@@ -1,38 +1,39 @@
-site_name: HPC Documentation
+site_name: MSKCC HPC Documentation
 
 use_directory_urls: false
 nav:
   - Announcements: general/news.md
-  - Quick Start: quick-start.md
-  - Getting Started:
-    - Code of Conduct: code-of-conduct.md
-    - MSKCC HPC system "LILAC": getting-Started/ubelix-overview.md
-    - Accounts and Activation: getting-Started/account.md
-    - Accessing the HPCs: getting-Started/login-ssh.md
-      #      - software for connecting to the HPCs:
+  - Getting Started: 
+    - About the clusters: getting-Started/about-clusters.md
+    - Prerequisites: 
+      - MSKCC HPC system "LILAC": getting-Started/lilac-overview.md
+      - Account Creation and Activation: getting-Started/account.md
+      - SSH customization: getting-Started/ssh-customization.md
+        ## ssh clients
+      - Shell customization: getting-Started/shell.md
+        ## shell scripting
+      - Unix/Linux Resources: getting-Started/unix-linux.md
+    - Accessing the Clusters: 
+      #      - software for connecting to the HPCs: getting-Started/login-ssh.md
       #      - Port Forwarding:
-    - Workspaces: getting-Started/workspaces.md
-    - SSH customization: getting-Started/ssh-customization.md
-    - Shell customization: getting-Started/shell.md
-    - Parallelization: getting-Started/parallelization.md
-  - Workspaces:
-    - Overview: hpc-workspaces/workspaces.md
-    - Workspace management: hpc-workspaces/management.md
-    - Software environment: hpc-workspaces/environment.md
-    - Monitoring: hpc-workspaces/monitoring.md
-  - LSF / Job handling:
-    - Partitions / QoS: slurm/partitions.md
-    - Submitting jobs: slurm/submission.md
-    #      - Parallel execution:
-    - Monitoring Jobs: slurm/monitoring-jobs.md
-    - Deleting Jobs: slurm/deleting-jobs.md
-    - Array Jobs with Slurm: slurm/array-jobs.md
-    - Job dependencies: slurm/dependencies.md
-    - GPUs: slurm/gpus.md
-    - Interactive Jobs: slurm/interactive-jobs.md
-    - Investigating a Job Failure: slurm/investigating-job-failure.md
-    - Checkpointing: slurm/checkpointing.md
-    - Fair Share: slurm/fair-share.md
+        - Via Command Line: getting-Started/command-line.md
+        - Via Web Browser: getting-Started/web-browser.md
+          # - OnDemand: 
+    - Bringing Data Into the Cluster: getting-Started/bring-data.md
+    - LSF and Submitting jobs: lsf/submission.md
+    - LSF Glossary: lsf/lsf-glossary.md  
+    # For more info: link to Running jobs*
+  - User Guide:
+    - Running Interactive Jobs: lsf/interactive-jobs.md
+    - Partitions / QoS: lsf/partitions.md
+    - Monitoring Jobs: lsf/monitoring-jobs.md
+    - Deleting Jobs: lsf/deleting-jobs.md
+    - Array Jobs with lsf: lsf/array-jobs.md
+    - Job dependencies: lsf/dependencies.md
+    - GPUs: lsf/gpus.md
+    - Investigating a Job Failure: lsf/investigating-job-failure.md
+    - Checkpointing: lsf/checkpointing.md
+    - Fair Share: lsf/fair-share.md
     #
   - Software:
     - HPC software environment: software/hpc-modules.md
@@ -54,6 +55,12 @@ nav:
     - Quota: file-system/quota.md
     - Moving files to and from the HPCs: file-system/file-transfer.md
     - Scratch: file-system/scratch.md
+  - Workspaces: 
+    - Intro to Workspaces: getting-Started/workspaces.md
+    - Overview: hpc-workspaces/workspaces.md
+    - Workspace management: hpc-workspaces/management.md
+    - Software environment: hpc-workspaces/environment.md
+    - Monitoring: hpc-workspaces/monitoring.md
   - Optimization:
     - Scaling: optimization/scaling.md
   - Investment: general/investment.md
@@ -61,6 +68,7 @@ nav:
   - FAQ: general/faq.md
   - Hall of Fame: halloffame.md
   - Code of Conduct: code-of-conduct.md
+  - Glossary: getting-Started/glossary.md
 
 
 # Copyright footer
@@ -109,3 +117,5 @@ extra:
   social:
     - icon: fontawesome/brands/github-alt
       link: https://github.mskcc.org/HPC/userdocs.git
+
+

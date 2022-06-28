@@ -8,7 +8,7 @@ Put your scientific workflows, software and libraries in a Singularity container
 
 ### Work interactively
 
-Submit an interactive SLURM job and then use the shell command to spawn an interactive shell within the Singularity container:
+Submit an interactive lsf job and then use the shell command to spawn an interactive shell within the Singularity container:
 
 ```Bash
 srun --time=01:00:00 --mem-per-cpu=2G --pty bash

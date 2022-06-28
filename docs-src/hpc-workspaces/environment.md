@@ -1,7 +1,7 @@
 # HPC Workspace Data and Software Tools
 
 ## Description
-HPC Workspace modules provides support for user-friendly file system access, custom software stacks in HPC Workspaces, and SLURM accounting. 
+HPC Workspace modules provides support for user-friendly file system access, custom software stacks in HPC Workspaces, and lsf accounting. 
 The module can also be used to set up HOME for a custom software stack. 
 
 Furthermore, there are modules provided to load a working Workspace and additionally a software stacks from another Workspace, see [Additional software stacks](#additional-software-stacks)
@@ -40,15 +40,15 @@ The workspace module provides the following variables:
 | `$WORKSPACE` | full path to the Workspace. Thus, you can access the workspace using: `cd $WORKSPACE` |
 | `$SCRATCH`  | full path to the Workspace SCRATCH directory. Thus you can access it using: `cd $SCRATCH` |
 
-### SLURM Account
+### lsf Account
 by loading the `Workspace` module by default the Workspace account is selected. Thus all jobs submitted without a specified `--account` will be submitted to this Workspace account.
 
 ### Additional Settings
-the module provides the following settings for a more user-friendly usage of applications. You may not need to use them directly, but tools like SLURM, Singularity, Python, and R will use them. 
+the module provides the following settings for a more user-friendly usage of applications. You may not need to use them directly, but tools like lsf, Singularity, Python, and R will use them. 
 
 |  <div style="width:180px">Variable</div> | Function |
 | -------- | -------- |
-| `$SBATCH_ACCOUNT` <br> `$SLURM_ACCOUNT` <br> `$SALLOC_ACCOUNT` | sets the SLURM account to the Workspace account. Thus all submitted jobs with that module are accounted to the Workspace account automatically. No need to set it in the sbatch script |
+| `$SBATCH_ACCOUNT` <br> `$lsf_ACCOUNT` <br> `$SALLOC_ACCOUNT` | sets the lsf account to the Workspace account. Thus all submitted jobs with that module are accounted to the Workspace account automatically. No need to set it in the sbatch script |
 | `$SINGULARITY_BINDPATH` | using singularity, the Workspace directory will be bind into the container without manual specification. The `WORKSPACE` variable as well as the `SCRATCH` variable will also be ported into the container. Thus, you can specify locations with `$WORKSPACE` or `$SCRATCH` within the container. | 
 | `$PYTHONPATH` | if `Python` or `Anaconda` is loaded beforehand, it is set to: `$WORKSPACE/PyPackages/lib/pythonXXX/site-packages` where `XXX` is the Python major and minor version. And also add the `bin` directory to `$PATH`. |
 | `$PYTHONPACKAGEPATH` | if `Python` or `Anaconda` is loaded beforehand, it is set to: `$WORKSPACE/PyPackages`. This can be used for e.g. `pip install --prefix $PYTHONPACKAGEPATH` |

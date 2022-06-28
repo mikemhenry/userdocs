@@ -60,10 +60,10 @@ When finished, please stop ParaView Server using
 !!! type note ""
     Please cancel your job with `scancel $JOBID` or all your running jobs using `scancel -u $USER` if not needed anymore. 
 
-Additional resources can be requested by `--slurm-args=""` option with the desired slurm options, e.g. `3 cores` for `20 min`:
+Additional resources can be requested by `--lsf-args=""` option with the desired lsf options, e.g. `3 cores` for `20 min`:
 
 ```Bash
-pvserver-parallel 15051 --slurm-args="--cpus-per-task=3 --time=00:20:00" 
+pvserver-parallel 15051 --lsf-args="--cpus-per-task=3 --time=00:20:00" 
 ```
 
 In addition ParaView arguments can be added without any prefix. 

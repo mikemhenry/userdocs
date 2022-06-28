@@ -289,7 +289,7 @@ To assign 4 cores to the parallel backend:
 
 !!! types caution "Request the correct number of slots"
     Because it is crucial to request the correct number of slots for a parallel job, we propose to set the number of cores for the doPar backend to the number of slots allocated to your job:
-    `registerDoParallel(cores=Sys.getenv("SLURM_CPUS_PER_TASK"))`
+    `registerDoParallel(cores=Sys.getenv("lsf_CPUS_PER_TASK"))`
 
 Now, run the example again:
 

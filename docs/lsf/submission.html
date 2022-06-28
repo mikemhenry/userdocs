@@ -1,0 +1,2281 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.5">
+    
+    
+      
+        <title>LSF and Submitting jobs - MSKCC HPC Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/mskcc.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#job-submission" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="MSKCC HPC Documentation" class="md-header__button md-logo" aria-label="MSKCC HPC Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MSKCC HPC Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LSF and Submitting jobs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.mskcc.org/HPC/userdocs.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HPC/userdocs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="MSKCC HPC Documentation" class="md-nav__button md-logo" aria-label="MSKCC HPC Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    MSKCC HPC Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.mskcc.org/HPC/userdocs.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HPC/userdocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/news.html" class="md-nav__link">
+        Announcements
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/about-clusters.html" class="md-nav__link">
+        About the clusters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Prerequisites
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prerequisites" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prerequisites
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/lilac-overview.html" class="md-nav__link">
+        MSKCC HPC system "LILAC"
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/account.html" class="md-nav__link">
+        Account Creation and Activation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/ssh-customization.html" class="md-nav__link">
+        SSH customization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/shell.html" class="md-nav__link">
+        Shell customization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/unix-linux.html" class="md-nav__link">
+        Unix/Linux Resources
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Accessing the Clusters
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Accessing the Clusters" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Accessing the Clusters
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/command-line.html" class="md-nav__link">
+        Via Command Line
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/web-browser.html" class="md-nav__link">
+        Via Web Browser
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/bring-data.html" class="md-nav__link">
+        Bringing Data Into the Cluster
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LSF and Submitting jobs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="submission.html" class="md-nav__link md-nav__link--active">
+        LSF and Submitting jobs
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-submit-a-job" class="md-nav__link">
+    How to submit a job
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-scripts" class="md-nav__link">
+    Batch scripts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#job-submission_1" class="md-nav__link">
+    Job submission
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-the-job" class="md-nav__link">
+    Checking the job
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-lsf" class="md-nav__link">
+    What is LSF?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basics-of-job-submission-using-lsf" class="md-nav__link">
+    Basics of job submission using LSF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-allocation-requesting-resources" class="md-nav__link">
+    Resource Allocation / Requesting Resources
+  </a>
+  
+    <nav class="md-nav" aria-label="Resource Allocation / Requesting Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sbatch" class="md-nav__link">
+    sbatch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-example" class="md-nav__link">
+    Simple Example
+  </a>
+  
+    <nav class="md-nav" aria-label="Simple Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#job-script" class="md-nav__link">
+    Job Script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-to-allocate-resources" class="md-nav__link">
+    command to allocate resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#srun" class="md-nav__link">
+    srun
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-do-i-use-srun-in-my-job-script" class="md-nav__link">
+    When do I use srun in my job script?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requesting-a-partition-qos-queue" class="md-nav__link">
+    Requesting a Partition / QoS (Queue)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accounts" class="md-nav__link">
+    Accounts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallel-jobs" class="md-nav__link">
+    Parallel Jobs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    Environment Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#job-examples" class="md-nav__link">
+    Job Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Job Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequential-job" class="md-nav__link">
+    Sequential Job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-jobs_1" class="md-nav__link">
+    Parallel Jobs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-considerations" class="md-nav__link">
+    Performance considerations
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#job-throughput" class="md-nav__link">
+    Job Throughput
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-performanceruntime" class="md-nav__link">
+    Job Performance/Runtime
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-settings" class="md-nav__link">
+    Advanced settings
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exportnone" class="md-nav__link">
+    EXPORT=NONE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lsf-glossary.html" class="md-nav__link">
+        LSF Glossary
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          User Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="User Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          User Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="interactive-jobs.html" class="md-nav__link">
+        Running Interactive Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="partitions.md" class="md-nav__link">
+        Partitions / QoS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="monitoring-jobs.html" class="md-nav__link">
+        Monitoring Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="deleting-jobs.html" class="md-nav__link">
+        Deleting Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="array-jobs.html" class="md-nav__link">
+        Array Jobs with lsf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dependencies.html" class="md-nav__link">
+        Job dependencies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gpus.html" class="md-nav__link">
+        GPUs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="investigating-job-failure.html" class="md-nav__link">
+        Investigating a Job Failure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="checkpointing.html" class="md-nav__link">
+        Checkpointing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fair-share.html" class="md-nav__link">
+        Fair Share
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/hpc-modules.html" class="md-nav__link">
+        HPC software environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/installing-custom-software.html" class="md-nav__link">
+        Installing Custom Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/EasyBuild.html" class="md-nav__link">
+        EasyBuild
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4">
+          Supported Applications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Supported Applications" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Supported Applications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/Anaconda.html" class="md-nav__link">
+        Anaconda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/CUDA.html" class="md-nav__link">
+        CUDA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/JupyterLab.html" class="md-nav__link">
+        JupyterLab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/matlab.html" class="md-nav__link">
+        Matlab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/bzip2.html" class="md-nav__link">
+        Parallel BZIP2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/ParaView.html" class="md-nav__link">
+        ParaView
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/python.html" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/r.html" class="md-nav__link">
+        R
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/relion.html" class="md-nav__link">
+        Relion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/singularity.html" class="md-nav__link">
+        Singularity
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Storage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/filesystem-overview.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/quota.html" class="md-nav__link">
+        Quota
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/file-transfer.html" class="md-nav__link">
+        Moving files to and from the HPCs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/scratch.html" class="md-nav__link">
+        Scratch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Workspaces
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Workspaces" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Workspaces
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/workspaces.html" class="md-nav__link">
+        Intro to Workspaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc-workspaces/workspaces.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc-workspaces/management.html" class="md-nav__link">
+        Workspace management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc-workspaces/environment.html" class="md-nav__link">
+        Software environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc-workspaces/monitoring.html" class="md-nav__link">
+        Monitoring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Optimization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Optimization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Optimization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimization/scaling.html" class="md-nav__link">
+        Scaling
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/investment.html" class="md-nav__link">
+        Investment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/support.html" class="md-nav__link">
+        Support
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/faq.html" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../halloffame.html" class="md-nav__link">
+        Hall of Fame
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/glossary.html" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-submit-a-job" class="md-nav__link">
+    How to submit a job
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-scripts" class="md-nav__link">
+    Batch scripts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#job-submission_1" class="md-nav__link">
+    Job submission
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-the-job" class="md-nav__link">
+    Checking the job
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-lsf" class="md-nav__link">
+    What is LSF?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basics-of-job-submission-using-lsf" class="md-nav__link">
+    Basics of job submission using LSF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-allocation-requesting-resources" class="md-nav__link">
+    Resource Allocation / Requesting Resources
+  </a>
+  
+    <nav class="md-nav" aria-label="Resource Allocation / Requesting Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sbatch" class="md-nav__link">
+    sbatch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-example" class="md-nav__link">
+    Simple Example
+  </a>
+  
+    <nav class="md-nav" aria-label="Simple Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#job-script" class="md-nav__link">
+    Job Script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-to-allocate-resources" class="md-nav__link">
+    command to allocate resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#srun" class="md-nav__link">
+    srun
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-do-i-use-srun-in-my-job-script" class="md-nav__link">
+    When do I use srun in my job script?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requesting-a-partition-qos-queue" class="md-nav__link">
+    Requesting a Partition / QoS (Queue)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accounts" class="md-nav__link">
+    Accounts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallel-jobs" class="md-nav__link">
+    Parallel Jobs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    Environment Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#job-examples" class="md-nav__link">
+    Job Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Job Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequential-job" class="md-nav__link">
+    Sequential Job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-jobs_1" class="md-nav__link">
+    Parallel Jobs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-considerations" class="md-nav__link">
+    Performance considerations
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#job-throughput" class="md-nav__link">
+    Job Throughput
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-performanceruntime" class="md-nav__link">
+    Job Performance/Runtime
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-settings" class="md-nav__link">
+    Advanced settings
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exportnone" class="md-nav__link">
+    EXPORT=NONE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.mskcc.org/HPC/userdocs.git/edit/main/docs/lsf/submission.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="job-submission">Job Submission</h1>
+<p>high level overview of how to submit a job especially for new users</p>
+<h2 id="how-to-submit-a-job">How to submit a job</h2>
+<h2 id="batch-scripts">Batch scripts</h2>
+<h2 id="job-submission_1">Job submission</h2>
+<h2 id="checking-the-job">Checking the job</h2>
+<h2 id="what-is-lsf">What is LSF?</h2>
+<p>On an HPC cluster, the scheduler manages which jobs run where and when. On our clusters, you control your jobs using a job scheduling system called IBM Spectrum Scale <strong>LSF</strong> that allocates and manages compute resources for you. </p>
+<p>A cluster<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> is a set of connected computers that work together to solve computational tasks (user jobs) and presents itself to the user as a single system. For the resources of a cluster (e.g. CPUs, GPUs, memory) to be used efficiently, a resource manager (also called workload manager or batch-queuing system) is vital; the resource manager of choice on our clusters is called IBM Spectrum Scale <strong>LSF</strong>. After submitting a job to the cluster, LSF will try to fulfill the job&rsquo;s resource request by allocating resources to the job. If the requested resources are already available, the job can start immediately. Otherwise, the start of the job is delayed (pending) until enough resources are available. By accurately requesting the resources you need, you can have your jobs execute as quickly as possible on nodes available to process them. </p>
+<p><strong>LSF also allows you to monitor active jobs and to retrieve statistics about finished jobs.</strong></p>
+<p>This page describes the job submission process with LSF.</p>
+<h2 id="basics-of-job-submission-using-lsf">Basics of job submission using LSF</h2>
+<ul>
+<li>The bsub command submits jobs to LSF</li>
+<li>It consists of two parts: resource requests and job steps. <ul>
+<li>A resource request consists of the number of CPU cores,  amount of memory per CPU core,  wall time (expected duration), GPUs etc. <strong>You can find complete lists of the available resources on the cluster pages lilac and juno.</strong>  </li>
+<li>Job steps specify tasks which must be done, software which must be run, etc. Upon submission, the job will advance in the queue until the requested resources are available. At this point LSF will allocate the requested CPU cores, GPUs, and memory, and execute it. </li>
+</ul>
+</li>
+<li>You can submit your jobs in one of two ways. <ul>
+<li>For testing and small jobs you may want to run a job <em>interactively</em>. This way you can directly interact with the compute node(s) in real time. </li>
+<li>However, the preferred way for multiple jobs or long-running jobs is to put all of your resource requests and executable into the <em>command line</em> or combining them into a <em>bsub script</em> and submitting that to the job scheduler. </li>
+</ul>
+</li>
+</ul>
+<h2 id="resource-allocation-requesting-resources">Resource Allocation / Requesting Resources</h2>
+<p>Every job submission starts with a resource request. The typical resources that must be included are included in the table below: 
+ <strong>The usual procedure is to combine resource requests and task execution (job steps) in a single batch script (job script) and then submit the script using the <code>bsub</code> command.</strong></p>
+<p>| Item       | Memory | Wall Time |
+ -------        -------   -----------
+ |Description|
+ |Example| </p>
+<p>The </p>
+<div class="admonition types note">
+<p>Most command options support a short form as well as a long form (e.g. <code>-u &lt;username&gt;</code>, and <code>--user=&lt;username&gt;</code>). Because few options only support the long form, we will consistently use the long form throughout this documentation.</p>
+</div>
+<div class="admonition types note">
+<p>Some options have default values if not specified: The <code>--time</code> option has partition-specific default values (see <code>scontrol show partition &lt;partname&gt;</code>). The <code>--mem-per-cpu</code> option has a global default value of 2048MB.</p>
+</div>
+<div class="admonition types note">
+<p>The default partition is <em>epyc2</em>. To select another partition one must use the <code>--partition</code> option, e.g. <code>--partition=gpu</code>.</p>
+</div>
+<h3 id="sbatch">sbatch</h3>
+<p>The <code>sbatch</code> command is used to submit a job script for later execution. It is the most common way to submit a job to the cluster due to its reusability. lsf options are usually embedded in a job script prefixed by <code>#SBATCH</code> directives. lsf options specified as command line options overwrite corresponding options embedded in the job script</p>
+<p>Syntax</p>
+<div class="highlight"><pre><span></span><code>sbatch <span class="o">[</span>options<span class="o">]</span> script <span class="o">[</span>args...<span class="o">]</span>
+</code></pre></div>
+<h3 id="simple-example">Simple Example</h3>
+<p>Batch sbmission script, <code>jobs.sh</code>:
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=&quot;First example&quot;</span>
+<span class="c1">#SBATCH --time=00:10:00</span>
+<span class="c1">#SBATCH --mem-per-cpu=1G</span>
+
+<span class="c1"># Your code below this line</span>
+module load Python
+srun python3 script.py
+</code></pre></div></p>
+<p>Submit the job script:</p>
+<div class="highlight"><pre><span></span><code>sbatch job.sh
+Submitted batch job 30215045
+</code></pre></div>
+<div class="admonition types note">
+<p>See below for more examples</p>
+</div>
+<h4 id="job-script">Job Script</h4>
+<p>Usually a job script consists of two parts. The first part is optional but highly recommended:</p>
+<ul>
+<li>lsf-specific options used by the scheduler to manage the resources (e.g. memory) and configure the job environment</li>
+<li>Job-specific shell commands</li>
+</ul>
+<p>The job script acts as a wrapper for your actual job. Command-line options can still be used to overwrite embedded options.</p>
+<div class="admonition types note">
+<p>Although you can specify all lsf options on the command-line, we encourage you, for clarity and reusability, to embed lsf options in the job script</p>
+</div>
+<h4 id="options">Options</h4>
+<table>
+<thead>
+<tr>
+<th><div style="width:120px">Option</div></th>
+<th>Description</th>
+<th><div style="width:180px">Example</div></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--job-name</code></td>
+<td>Specify a job name</td>
+<td><code>--job-name="Simple Matlab"</code></td>
+</tr>
+<tr>
+<td><code>--time</code></td>
+<td>Expected runtime of the job. Format: dd-hh:mm:ss</td>
+<td><code>--time=12:00:00</code> <br> <code>--time=2-06:00:00</code></td>
+</tr>
+<tr>
+<td><code>--ntasks</code></td>
+<td>Number of tasks (processes). Used for MPI jobs that may run distributed on multiple compute nodes</td>
+<td><code>--ntasks=4</code></td>
+</tr>
+<tr>
+<td><code>--nodes</code></td>
+<td>Request a certain number of nodes</td>
+<td><code>--nodes=2</code></td>
+</tr>
+<tr>
+<td><code>--ntasks-per-node</code></td>
+<td>Specifies how many tasks will run on each allocated node. Meant to be used with <code>--nodes</code>. If used with the <code>--ntasks</code> option, the <code>--ntasks</code> option will take precedence and the <code>--ntasks-per-node</code> will be treated as a maximum count of tasks per node.</td>
+<td><code>--ntasks-per-node=2</code></td>
+</tr>
+<tr>
+<td><code>--cpus-per-task</code></td>
+<td>Number of CPUs per task (threads). Used for shared memory jobs that run locally on a single compute node. Default is <code>1</code></td>
+<td><code>--cpus-per-task=4</code></td>
+</tr>
+<tr>
+<td><code>--mem-per-cpu</code></td>
+<td>Minimum memory required per allocated CPU in megabytes. Different units can be specified using the suffix [K|M|G]. Default 2048 MB</td>
+<td><code>--mem-per-cpu=2G</code></td>
+</tr>
+<tr>
+<td><code>--output</code></td>
+<td>Redirect <strong>standard output</strong>. <em>All directories specified in the path must exist before the job starts!</em> By default stderr and stdout are merged into a file <code>lsf-%j.out</code>, where <code>%j</code> is the job allocation number.</td>
+<td><code>--output=myCal_%j.out</code></td>
+</tr>
+<tr>
+<td><code>--error</code></td>
+<td>Redirect <strong>standard error</strong>. <em>All directories specified in the path must exist before the job starts!</em> By default stderr and stdout are merged into a file <code>lsf-%j.out</code>, where <code>%j</code> is the job allocation number.</td>
+<td><code>--output=myCal_%j.err</code></td>
+</tr>
+<tr>
+<td><code>--partition</code></td>
+<td>Select a different partition with different hardware. See <a href="partitions.md">Partition/QoS page</a>. Default: <code>epyc2</code></td>
+<td><code>--partition=bdw</code> <br> <code>--partition=gpu</code></td>
+</tr>
+<tr>
+<td><code>--qos</code></td>
+<td>Specify &ldquo;Quality of Service&rdquo;. This can be used to change job limits, e.g. for long jobs or short jobs with large resources. See <a href="partitions.md">Partition/QoS page</a></td>
+<td></td>
+</tr>
+<tr>
+<td><code>--tmp</code></td>
+<td>Specify the amount of disk space that must be available on the compute node(s). The local scratch space for the job is referenced by the variable <code>$TMPDIR</code>. Default units are megabytes. Different units can be specified using the suffix [K|M|G|T].</td>
+<td><code>--tmp=8G</code></td>
+</tr>
+<tr>
+<td><code>--mail-user</code></td>
+<td>Mail address to contact job owner. <br> <strong>Must be a valid email address, if used!</strong></td>
+<td><code>--mail-user=foo.bar@unibe.ch</code></td>
+</tr>
+<tr>
+<td><code>--mail-type</code></td>
+<td>When to notify a job owner: <code>none</code>, <code>all</code>, <code>begin</code>, <code>end</code>, <code>fail</code>, <code>requeue</code>, <code>array_tasks</code></td>
+<td><code>--mail-type=end,fail</code></td>
+</tr>
+<tr>
+<td><code>--array</code></td>
+<td>Submit an array job. Specify the used indices and use &ldquo;%&rdquo; to specify the max number of tasks allowed to run concurrently.</td>
+<td><code>--array=1,4,16-32:4</code> <br> <code>--array=1-100%20</code></td>
+</tr>
+<tr>
+<td><code>--chdir</code></td>
+<td>Set the working directory of the batch script to directory before it is executed. The path can be specified as full path or relative path to the directory where the command is executed. Environment variables are not supported.</td>
+<td><code>--chdir=subdir1</code></td>
+</tr>
+<tr>
+<td><code>--dependency</code></td>
+<td>Defer the start of this job until the specified dependencies have been satisfied. See <code>man sbatch</code> for a description of all valid dependency types</td>
+<td><code>--dependency=afterok:11908</code></td>
+</tr>
+<tr>
+<td><code>--immediate</code></td>
+<td>Only submit the job if all requested resources are immediately available</td>
+<td></td>
+</tr>
+<tr>
+<td><code>--exclusive</code></td>
+<td>Use the compute node(s) exclusively, i.e. do not share nodes with other jobs. <strong>CAUTION: Only use this option if you are an experienced user, and you really understand the implications of this feature. If used improperly, the use of this option can lead to a massive waste of computational resources</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>--test-only</code></td>
+<td>Validate the batch script and return the estimated start time considering the current cluster state</td>
+<td></td>
+</tr>
+<tr>
+<td><code>--account</code></td>
+<td>Specifies account to charge. Please use <code>Workspace</code> module to select Workspace account. Regular users don&rsquo;t need to specify this option.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="command-to-allocate-resources">command to allocate resources</h4>
+<p>The <code>salloc</code> command is used to allocate resources (e.g. nodes), possibly with a set of constraints (e.g. number of processor per node) for later utilization. It is typically used to allocate resources and spawn a shell, in which the <code>srun</code> command is used to launch parallel tasks.</p>
+<p>Syntax
+<div class="highlight"><pre><span></span><code>salloc <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>&lt;command&gt; <span class="o">[</span>args...<span class="o">]]</span>
+</code></pre></div></p>
+<p>Example
+<div class="highlight"><pre><span></span><code>bash$ salloc -N <span class="m">2</span> -t <span class="m">10</span>
+salloc: Granted job allocation <span class="m">247</span>
+bash$ module load foss
+bash$ srun ./mpi_hello_world
+Hello, World.  I am <span class="m">1</span> of <span class="m">2</span> running on knlnode03.ubelix.unibe.ch
+Hello, World.  I am <span class="m">0</span> of <span class="m">2</span> running on knlnode02.ubelix.unibe.ch
+bash$ <span class="nb">exit</span>
+salloc: Relinquishing job allocation <span class="m">247</span>
+</code></pre></div></p>
+<h4 id="srun">srun</h4>
+<p>The <code>srun</code> command creates job steps. One or multiple <code>srun</code> invocations are usually used from within an existing resource allocation. Thereby, a job step can utilize all resources allocated to the job, or utilize only a subset of the resource allocation. Multiple job steps can run sequentially in the order defined in the batch script or run in parallel, but can together never utilize more resources than provided by the allocation.</p>
+<div class="admonition types danger">
+<p>Do not submit a job script using <code>srun</code>. Embedded lsf options (<code>#SBATCH</code>) are not parsed by <code>srun</code>.</p>
+</div>
+<p>Syntax
+<div class="highlight"><pre><span></span><code>srun [options] executable [args...]
+</code></pre></div></p>
+<h4 id="when-do-i-use-srun-in-my-job-script">When do I use srun in my job script?</h4>
+<p>Use <code>srun</code> in your job script for all main executables, especially if these are:</p>
+<ul>
+<li>MPI applications</li>
+<li>multiple job tasks (serial or parallel jobs) simultaneously within an allocation</li>
+</ul>
+<p><strong>Example</strong>
+Run MPI task:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=&quot;Open MPI example&quot;</span>
+<span class="c1">#SBATCH --nodes=2</span>
+<span class="c1">#SBATCH --ntasks-per-node=20</span>
+<span class="c1">#SBATCH --mem-per-cpu=2G</span>
+<span class="c1">#SBATCH --time=06:00:00</span>
+
+<span class="c1"># Your code below this line</span>
+module load foss
+srun ./mpi_app.exe
+</code></pre></div>
+<p>Run two jobs simultaneously:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=&quot;Open MPI example&quot;</span>
+<span class="c1">#SBATCH --ntasks=2</span>
+<span class="c1">#SBATCH --cpus-per-task=4</span>
+
+<span class="c1"># Your code below this line</span>
+<span class="c1"># run 2 threaded applications side-by-side</span>
+srun --tasks<span class="o">=</span><span class="m">1</span> --cpus-per-task<span class="o">=</span><span class="m">4</span> ./app1 inp1.dat <span class="p">&amp;</span>
+srun --tasks<span class="o">=</span><span class="m">1</span> --cpus-per-task<span class="o">=</span><span class="m">4</span> ./app2 inp2.dat <span class="p">&amp;</span>
+<span class="nb">wait</span>
+<span class="c1"># wait: Wait for both background commands to finish. This is important when running bash commands in the background (using &amp;)! Otherwise, the job ends immediately. </span>
+</code></pre></div>
+<p>Please run series of similar tasks as job array. See <a href="array-jobs.html">Array Jobs</a></p>
+<h2 id="requesting-a-partition-qos-queue">Requesting a Partition / QoS (Queue)</h2>
+<p>Per default jobs are submitted to the <code>epyc2</code> partition and the default QoS <code>job_epyc2</code>. 
+The partition option can be used to request different hardware, e.b. <code>gpu</code> partition. And the QoS can be used to run in a specific queue, e.g. <code>job_gpu_debug</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --partition=gpu --qos=job_gpu_debug</span>
+</code></pre></div>
+<p>See <a href="partitions.md">Partitions / QoS</a> for a list of available partitions and QoS and its specifications.</p>
+<h2 id="accounts">Accounts</h2>
+<p>By default a user has a &ldquo;private&rdquo; account. When belonging to a Workspace your private account gets deactivated and you can submit with the Workspace account. We strongly suggest to use the Workspace module (<code>module load Workspace</code>), which automatically sets the Workspace account for you. 
+If really necessary, the can be selected by the <code>--account</code> option. </p>
+<p>If a wrong account/partition combination is requested, you will experience the following error message:</p>
+<div class="highlight"><pre><span></span><code>sbatch: error: Batch job submission failed: Invalid account or account/partition combination specified
+</code></pre></div>
+<p>If you did not specified <code>--account</code>, and belong to a Workspace, please load the Workspace module fist.</p>
+<h2 id="parallel-jobs">Parallel Jobs</h2>
+<p>A parallel job requires multiple compute cores. These could be within one node or across the machine in multiple nodes. We distinguish following types:</p>
+<ul>
+<li>
+<p><strong>shared memory jobs</strong>: SMP, parallel jobs that run on a single compute node. The executable is called once. Within the execution (OMP) threads are spawned and merged. 
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --ntasks=1           # default value</span>
+<span class="c1">#SBATCH --cpus-per-task=4</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>MPI jobs</strong>: parallel jobs that may be distributed over multiple compute nodes. Each task starts the executable. Within the application different workflows need to be defined for the different tasks. The tasks can communicate using Message Passing Interface (MPI). A job with 40 tasks:
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --nodes=2</span>
+<span class="c1">#SBATCH --ntasks-per-node=20</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>hybrid</strong>: jobs using a combination of MPI tasks and (OMP) threads. 
+<div class="highlight"><pre><span></span><code><span class="c1">#SBATCH --nodes=2</span>
+<span class="c1">#SBATCH --ntasks-per-node=5</span>
+<span class="c1">#SBATCH --cpus-per-task=4</span>
+</code></pre></div></p>
+</li>
+</ul>
+<div class="admonition type danger">
+<p>The requested node,task, and CPU resources must match! For example, you cannot request one node (<code>--nodes=1</code>) and more tasks (<code>--ntasks-per-node</code>) than CPU cores are available on a single node in the partition. In such a case you will experience an error message: 
+<div class="highlight"><pre><span></span><code>sbatch: error: Batch job submission failed: Requested node configuration is not available.
+</code></pre></div></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">parallel launcher</p>
+<p>Parallel applications, esp. MPI, need a launcher to setup the environment. We strongly suggest to use <code>srun</code> instead of mpirun. </p>
+</div>
+<h2 id="environment-variables">Environment Variables</h2>
+<p>lsf sets various environment variables available in the context of the job script. Some are set based on the requested resources for the job.</p>
+<table>
+<thead>
+<tr>
+<th>Environment Variable</th>
+<th>Set By Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lsf_JOB_NAME</code></td>
+<td><code>--job-name</code></td>
+<td>Name of the job</td>
+</tr>
+<tr>
+<td><code>lsf_ARRAY_JOB_ID</code></td>
+<td></td>
+<td>ID of your job</td>
+</tr>
+<tr>
+<td><code>lsf_ARRAY_TASK_ID</code></td>
+<td><code>--array</code></td>
+<td>ID of the current array task</td>
+</tr>
+<tr>
+<td><code>lsf_ARRAY_TASK_MAX</code></td>
+<td><code>--array</code></td>
+<td>Job array&rsquo;s maximum ID (index) number</td>
+</tr>
+<tr>
+<td><code>lsf_ARRAY_TASK_MIN</code></td>
+<td><code>--array</code></td>
+<td>Job array&rsquo;s minimum ID (index) number</td>
+</tr>
+<tr>
+<td><code>lsf_ARRAY_TASK_STEP</code></td>
+<td><code>--array</code></td>
+<td>Job array&rsquo;s index step size</td>
+</tr>
+<tr>
+<td><code>lsf_NTASKS</code></td>
+<td><code>--ntasks</code></td>
+<td>Same as <code>-n</code>, <code>--ntasks</code></td>
+</tr>
+<tr>
+<td><code>lsf_NTASKS_PER_NODE</code></td>
+<td><code>--ntasks-per-node</code></td>
+<td>Number of tasks requested per node.  Only set if the <code>--ntasks-per-node</code> option is specified</td>
+</tr>
+<tr>
+<td><code>lsf_CPUS_PER_TASK</code></td>
+<td><code>--cpus-per-task</code></td>
+<td>Number of cpus requested per task.  Only set if the <code>--cpus-per-task</code> option is specified</td>
+</tr>
+<tr>
+<td><code>TMPDIR</code></td>
+<td></td>
+<td>References the disk space for the job on the local scratch</td>
+</tr>
+</tbody>
+</table>
+<p>For the full list, see <code>man sbatch</code></p>
+<h2 id="job-examples">Job Examples</h2>
+<h3 id="sequential-job">Sequential Job</h3>
+<p>Running a serial job with email notification in case of error (1 task is default value):</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --mail-user=foo.bar@baz.unibe.ch</span>
+<span class="c1">#SBATCH --mail-type=end,fail</span>
+<span class="c1">#SBATCH --job-name=&quot;Serial Job&quot;</span>
+<span class="c1">#SBATCH --time=04:00:00</span>
+
+<span class="c1"># Your code below this line</span>
+<span class="nb">echo</span> <span class="s2">&quot;I&#39;m on host: </span><span class="nv">$HOSTNAME</span><span class="s2">&quot;</span>
+</code></pre></div>
+<h3 id="parallel-jobs_1">Parallel Jobs</h3>
+<p><strong>Shared Memory Jobs (e.g. OpenMP)</strong></p>
+<p>SMP parallelization is based upon dynamically created threads (fork and join) that share memory on a single node. The key request is <code>--cpus-per-task</code>. To run N threads in parallel, we request N CPUs on the node (<code>--cpus-per-task=N</code>). </p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --mail-user=foo.bar@baz.unibe.ch</span>
+<span class="c1">#SBATCH --mail-type=end,fail</span>
+<span class="c1">#SBATCH --job-name=&quot;SMP Job&quot;</span>
+<span class="c1">#SBATCH --mem-per-cpu=2G</span>
+<span class="c1">#SBATCH --cpus-per-task=16</span>
+<span class="c1">#SBATCH --time=04:00:00</span>
+
+<span class="c1"># Your code below this line</span>
+srun ./my_binary
+</code></pre></div>
+<p><strong>MPI Jobs (e.g. Open MPI)</strong></p>
+<p>MPI parallelization is based upon processes (local or distributed) that communicate by passing messages. Since they don&rsquo;t rely on shared memory those processes can be distributed among several compute nodes.
+Use the option <code>--ntasks</code> to request a certain number of tasks (processes) that can be distributed over multiple nodes:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --mail-user=foo.bar@baz.unibe.ch</span>
+<span class="c1">#SBATCH --mail-type=end</span>
+<span class="c1">#SBATCH --job-name=&quot;MPI Job&quot;</span>
+<span class="c1">#SBATCH --mem-per-cpu=2G</span>
+<span class="c1">#SBATCH --ntasks=8</span>
+<span class="c1">#SBATCH --time=04:00:00</span>
+
+<span class="c1"># Your code below this line</span>
+<span class="c1"># First set the environment for using Open MPI</span>
+module load foss
+srun ./my_binary
+</code></pre></div>
+<p>On the &lsquo;bdw&rsquo; partition you must use all CPUs provided by a node (20 CPUs). For example to run an OMPI job on 80 CPUs, do:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --mail-user=foo.bar@baz.unibe.ch</span>
+<span class="c1">#SBATCH --mail-type=end,fail</span>
+<span class="c1">#SBATCH --job-name=&quot;MPI Job&quot;</span>
+<span class="c1">#SBATCH --mem-per-cpu=2G</span>
+<span class="c1">#SBATCH --nodes=4     ## or --ntasks=80</span>
+<span class="c1">#SBATCH --ntasks-per-node=20</span>
+<span class="c1">#SBATCH --time=12:00:00</span>
+
+<span class="c1"># Your code below this line</span>
+module load foss
+srun ./my_binary
+</code></pre></div>
+<h2 id="performance-considerations">Performance considerations</h2>
+<h3 id="job-throughput">Job Throughput</h3>
+<p><strong>It is crucial to specify a more or less accurate runtime for your job.</strong><br />
+Requesting too little will result in job abortion, while requesting too much will have a negative impact on job start time and job throughput: Firstly, jobs with a shorter runtime have a greater chance to benefit from being backfilled between long running jobs and may therefore start earlier if resources are scarce. Secondly, a short running job may still start when a scheduled downtime is getting closer while long running jobs won&rsquo;t start because they are not guaranteed to finish before the start of the downtime.</p>
+<p><strong>It is crucial to request the correct amount of cores for your job.</strong><br />
+Requesting cores that your job cannot utilize is a waste of resources that could otherwise be allocated to other jobs. Hence, jobs that theoretically could run have to wait for the resources to become available. For potential consequences of requesting too less cores on job performance, see below.</p>
+<p><strong>It is crucial to request the correct amount of memory for your job.</strong><br />
+Requesting too little memory will result in job abortion. Requesting too much memory is a waste of resources that could otherwise be allocated to other jobs.</p>
+<h3 id="job-performanceruntime">Job Performance/Runtime</h3>
+<p><strong>It is crucial to request the correct amount of cores for your job.</strong><br />
+For parallel jobs (shared memory, MPI, hybrid) requesting less cores than processes/threads are spawned by the job will lead to potentially overbooked compute nodes. This is because your job will nevertheless spawn the required number of processes/threads (use a certain number of cores) while to the scheduler it appears that some of the utilized resources are still available, and thus the scheduler will allocate those resources to other jobs. Although under certain circumstances it might make sense to share cores among multiple processes/threads, the above reasoning should be considered as a general guideline, especially for inexperienced user.</p>
+<h2 id="advanced-settings">Advanced settings</h2>
+<h3 id="exportnone">EXPORT=NONE</h3>
+<p>By default the environment from the session, where the job is submitted is forwarded into the job environment. As a result all loaded modules and environment variables present during submit time are also present during run time. </p>
+<p>To start from a clean environment the environment forwarding can be prevented. Therefore, we have to keep in mind the 2 stages. First, after submission the job script is launched on a compute node. Second, the parallel tasks are launched using srun. We want to preserve the environment forwarding from within the job script to the parallel tasks. 
+Using just the option <code>sbatch --export=none</code> or the environment variable <code>SBATCH_EXPORT=NONE</code> will prevent the forwarding in both cases. 
+Therewith, issues may occur, like dynamically linked binaries do not find libraries (e.g. <code>executable.xyz: error while loading shared libraries: libgfortran.so.5: cannot open shared object file: No such file or directory</code>).</p>
+<p>Thus we suggest to set:</p>
+<p><div class="highlight"><pre><span></span><code>export SBATCH_EXPORT=NONE
+export lsf_EXPORT_ENV=ALL
+</code></pre></div>
+This will provide you with a clean environment during job launch and forward the environment set in the job script to the parallel tasks. 
+This is necessary to have e.g. LD_LIBRARY_PATH set correctly for dynamically linked binaries. </p>
+<div class="admonition types caution">
+<p class="admonition-title">keep output</p>
+<p>It is important to collect error/output messages either by writing such information to the default location or by specifying specific locations using the <code>--error</code>/<code>-–output</code> option. Do not redirect the error/output stream to /dev/null unless you know what you are doing. Error and output messages are the starting point for investigating a job failure.</p>
+</div>
+<div class="admonition types caution">
+<p class="admonition-title">job series</p>
+<p>Submit series of jobs (collection of similar jobs) as <em>array jobs</em> instead of one by one. This is crucial for backfilling performance and hence job throughput. instead of submitting the same job repeatedly. See <a href="array-jobs.html">Array jobs</a></p>
+</div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Reference the Glossary for more info on a cluster&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2022-06-28
+    
+  </small>
+</div>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../getting-Started/bring-data.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Bringing Data Into the Cluster" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Bringing Data Into the Cluster
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="lsf-glossary.html" class="md-footer__link md-footer__link--next" aria-label="Next: LSF Glossary" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              LSF Glossary
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Memorial Sloan Kettering Cancer Center, High Performance Computing Group
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.mskcc.org/HPC/userdocs.git" target="_blank" rel="noopener" title="github.mskcc.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.431f3d41.min.js"></script>
+      
+    
+  </body>
+</html>

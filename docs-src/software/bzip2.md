@@ -22,7 +22,7 @@ source="data/to/pack"               ## specify your data to compress
 target="/packed/file.tar.bz2"       ## specify directory and filename
 
 # archive dir data_unibe to a tar file and compress it using pbzip2
-srun tar -cS $source | pbzip2 -p$SLURM_CPUS_PER_TASK > $target
+srun tar -cS $source | pbzip2 -p$lsf_CPUS_PER_TASK > $target
 
 # Generate a sha256 fingerprint, to later check the integrity 
 sha256sum $target > ${target}.sha256sum

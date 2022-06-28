@@ -1,7 +1,7 @@
 # HPC Workspaces
 
 ## Description
-The HPC Workspaces provide a group shared environment, including storage with user-defined access, SLURM accounting, and tools. 
+The HPC Workspaces provide a group shared environment, including storage with user-defined access, lsf accounting, and tools. 
 
 An HPC Workspace belong to a research group and need to be requested by the research group leader, see [Workspace management](../hpc-workspaces/management.md). 
 
@@ -16,10 +16,10 @@ Each Workspace provide:
 - permanent storage (`/storage/workspaces/<researchGroupID>/<workspaceID>`) 
 - temporary storage (`/storage/scratch/<researchGroupID>/<workspaceID>`)
 - user-friendly access to a custom software repositories and monitoring tools and
-- SLURM accounting to that Workspace. Fair share between research groups.
+- lsf accounting to that Workspace. Fair share between research groups.
 
 ## Usage
-Please always load the Workspace module when using it, even if you only copy files into it. The module provides you with shortcuts (e.g. `$WORKSPACE`), the custom Software stack (if existing) and SLURM settings.
+Please always load the Workspace module when using it, even if you only copy files into it. The module provides you with shortcuts (e.g. `$WORKSPACE`), the custom Software stack (if existing) and lsf settings.
 
 ## Application
 

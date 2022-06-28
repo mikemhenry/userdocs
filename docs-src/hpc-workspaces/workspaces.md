@@ -11,7 +11,7 @@ An HPC workspace consists of:
 
 - 2 access groups, *read/write* and *read only*
 - permanent and temporary storage
-- Slurm accounting
+- lsf accounting
 - fair share on research group level
 
 !!! ATTENTION
@@ -68,7 +68,7 @@ Scratch will not be protected by snapshots or backups.
 For default and actual **quota** information use `quota` tool. More details see [File System Quota](../file-system/quota.md).
 
 
-## SLURM
+## lsf
 Computational work is accounted to a Workspace account. Every workspace belongs to a research group. The freely available resources are shared between research groups. 
 
 [//]: # (TODO link to fairshare description)

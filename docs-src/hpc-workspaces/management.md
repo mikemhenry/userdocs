@@ -110,13 +110,13 @@ Properties to change are:
 !!! type "Note"
     During the processing of a modification no other modification can be requested. The Workspace is even not visible in the ServicePortal for that time. 
     Most modification will be processed within few minutes, but adding non-free-of-charge features like additional storage, need human approval, which may delay the process. 
-    The Workspace itself (file storage and Slurm, etc.) will not be interrupted by a change. 
+    The Workspace itself (file storage and lsf, etc.) will not be interrupted by a change. 
 
 ## Investor QoS
-Investors get elevated priviledges for specific queues. These are managed in so called Slurm QoS (Quality of Service). Where in the past the investors specified a list of users, who can use the QoS, in future Workspaces are able to manage the QoS on Workspace level. Therefore, you need to open a request to add an existing QoS to a (list of) Workspace(s). The membership managment is done within the Workspace. 
+Investors get elevated priviledges for specific queues. These are managed in so called lsf QoS (Quality of Service). Where in the past the investors specified a list of users, who can use the QoS, in future Workspaces are able to manage the QoS on Workspace level. Therefore, you need to open a request to add an existing QoS to a (list of) Workspace(s). The membership managment is done within the Workspace. 
 
 !!! type "Warning"
-    Investor QoS are bind to SLURM accounts. Since personal SLURM accounts get deactivated when joining an HPC Workspace, the investor QoS need to get transfered. This process is not done automatically, please request the transfer using our [ServicePortal](https://serviceportal.unibe.ch/hpc)
+    Investor QoS are bind to lsf accounts. Since personal lsf accounts get deactivated when joining an HPC Workspace, the investor QoS need to get transfered. This process is not done automatically, please request the transfer using our [ServicePortal](https://serviceportal.unibe.ch/hpc)
 
 ## Import Bulk Users
 

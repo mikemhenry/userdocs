@@ -54,14 +54,14 @@ If necessary, additional storage can be purchased per Workspace, where only the 
 Your Research group manager or a registered deputy can apply for an additional quota. Actual used quota will be charged. 
 
 ### Why can I not submit jobs anymore?
-After joining an HPC Workspace the private SLURM account gets deactivated and a Workspace account need to be specified. 
+After joining an HPC Workspace the private lsf account gets deactivated and a Workspace account need to be specified. 
 This can be done by loading the Workspace module, see [Workspace environment](../hpc-workspaces/environment.md):
 
 ```Bash 
 module load Workspace
 ```
 
-Otherwise Slurm will present the following error message:
+Otherwise lsf will present the following error message:
 ```Bash
 sbatch: error: AssocGrpSubmitJobsLimit
 sbatch: error: Batch job submission failed: Job violates accounting/QOS policy (job submit limit, user's size and/or time limits)
@@ -171,7 +171,7 @@ Some node required by the job is currently not available. The node may currently
 
 ### Job in state FAILED although job completed successfully
 
-Slurm captures the return value of the batch script/last command and reports this value as the completion status of the job/job step. Slurm indicates status FAILED if the value captured is non-zero.
+lsf captures the return value of the batch script/last command and reports this value as the completion status of the job/job step. lsf indicates status FAILED if the value captured is non-zero.
 
 The following simplified example illustrates the issue:
 
@@ -191,7 +191,7 @@ int main (int argc, char *argv[]) {
 
 ```Bash
 #!/bin/bash
-# Slurm options
+# lsf options
 #SBATCH --mail-user=foo@bar.unibe.ch
 #SBATCH --mail-type=END
 #SBATCH --job-name="Simple Hello World"
@@ -208,13 +208,13 @@ Submitted batch job 104
 
 Although the job finished successfully...
 
-**slurm-104.out**
+**lsf-104.out**
 
 ```Bash
 knlnode02.ubelix.unibe.ch says: Hello World.
 ```
 
-...Slurm reports job FAILED:
+...lsf reports job FAILED:
 
 ```Bash
 bash$ sacct -j 104
@@ -225,7 +225,7 @@ bash$ sacct -j 104
 ```
 
 
-Problem: The exit code of the job is the exit status of batch script (job.sh) which in turn returns the exit status of the last command executed (simple) which in turn returns the return value of the last statement (printf()). Since printf() returns the number of characters printed (45), the exit code of the batch script is non-zero and consequently Slurm reports job FAILED although the job produces the desired output.
+Problem: The exit code of the job is the exit status of batch script (job.sh) which in turn returns the exit status of the last command executed (simple) which in turn returns the return value of the last statement (printf()). Since printf() returns the number of characters printed (45), the exit code of the batch script is non-zero and consequently lsf reports job FAILED although the job produces the desired output.
 
 Solution: Explicitly return a value:
 

@@ -94,7 +94,7 @@ The last line needs to be copied in your local browser.
     do not use `Ctrl + C` for copying the link, this will abort the server process and kill your job. 
 
 !!! note "QOS"
-    the `jupyter-compute` tool uses an special Slurm Quality of Service (QoS), which should reduce queuing times for interactive jobs. 
+    the `jupyter-compute` tool uses an special lsf Quality of Service (QoS), which should reduce queuing times for interactive jobs. 
     Since interactive jobs are considered to be finished within less than a working day, the walltime limit cannot exceed 8h (default run time is 6h, afterwards you are expected to have a break ;) ). 
     You can disable that qos using the option `--no-qos`, but please release the resources as soon as you are not actively working with the resources anymore.
 
@@ -111,7 +111,7 @@ import socket
 print(socket.gethostname())
 ```
 
-> IMPORTANT: Please remember to stop your Jupyter Lab server and therewith your slurm job, when you do not need it anymore. Thus, the resource get available to other users again. 
+> IMPORTANT: Please remember to stop your Jupyter Lab server and therewith your lsf job, when you do not need it anymore. Thus, the resource get available to other users again. 
 
 > Note: After stopping the JupyterLab server some sessions may get corrupted and do not take input correctly anymore. In this case just quit and re-establish your ssh session.
 
