@@ -1,0 +1,1696 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
+    
+    
+      
+        <title>Installing Custom Software - MSKCC HPC Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/mskcc.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installing-custom-software" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="MSKCC HPC Documentation" class="md-header__button md-logo" aria-label="MSKCC HPC Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MSKCC HPC Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installing Custom Software
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.mskcc.org/HPC/userdocs.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HPC/userdocs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="MSKCC HPC Documentation" class="md-nav__button md-logo" aria-label="MSKCC HPC Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    MSKCC HPC Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.mskcc.org/HPC/userdocs.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HPC/userdocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/news.html" class="md-nav__link">
+        Announcements
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/about-clusters.html" class="md-nav__link">
+        About the clusters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Prerequisites
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prerequisites" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prerequisites
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/lilac-overview.html" class="md-nav__link">
+        MSKCC HPC system "LILAC"
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/account.html" class="md-nav__link">
+        Account Creation and Activation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/ssh-customization.html" class="md-nav__link">
+        SSH customization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/shell.html" class="md-nav__link">
+        Shell customization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/unix-linux.html" class="md-nav__link">
+        Unix/Linux Resources
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Accessing the Clusters
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Accessing the Clusters" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Accessing the Clusters
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/command-line.html" class="md-nav__link">
+        Via Command Line
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/web-browser.html" class="md-nav__link">
+        Via Web Browser
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/bring-data.html" class="md-nav__link">
+        Bringing Data Into the Cluster
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsf/submission.html" class="md-nav__link">
+        LSF and Submitting jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsf/lsf-glossary.html" class="md-nav__link">
+        LSF Glossary
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          User Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="User Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          User Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsf/interactive-jobs.html" class="md-nav__link">
+        Running Interactive Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsf/partitions.md" class="md-nav__link">
+        Partitions / QoS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsf/monitoring-jobs.html" class="md-nav__link">
+        Monitoring Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsf/deleting-jobs.html" class="md-nav__link">
+        Deleting Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsf/array-jobs.html" class="md-nav__link">
+        Array Jobs with lsf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsf/dependencies.html" class="md-nav__link">
+        Job dependencies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsf/gpus.html" class="md-nav__link">
+        GPUs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsf/investigating-job-failure.html" class="md-nav__link">
+        Investigating a Job Failure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsf/checkpointing.html" class="md-nav__link">
+        Checkpointing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsf/fair-share.html" class="md-nav__link">
+        Fair Share
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hpc-modules.html" class="md-nav__link">
+        HPC software environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Installing Custom Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="installing-custom-software.html" class="md-nav__link md-nav__link--active">
+        Installing Custom Software
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-software-packages" class="md-nav__link">
+    Building Software packages
+  </a>
+  
+    <nav class="md-nav" aria-label="Building Software packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#software-stacks" class="md-nav__link">
+    Software stacks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#easybuild" class="md-nav__link">
+    EasyBuild
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-and-r" class="md-nav__link">
+    Python and R
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manually-compiling" class="md-nav__link">
+    Manually compiling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-stacks-with-modules" class="md-nav__link">
+    Software Stacks with Modules
+  </a>
+  
+    <nav class="md-nav" aria-label="Software Stacks with Modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modulefiles" class="md-nav__link">
+    Modulefiles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="EasyBuild.html" class="md-nav__link">
+        EasyBuild
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4">
+          Supported Applications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Supported Applications" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Supported Applications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Anaconda.html" class="md-nav__link">
+        Anaconda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CUDA.html" class="md-nav__link">
+        CUDA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="JupyterLab.html" class="md-nav__link">
+        JupyterLab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="matlab.html" class="md-nav__link">
+        Matlab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="bzip2.html" class="md-nav__link">
+        Parallel BZIP2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ParaView.html" class="md-nav__link">
+        ParaView
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python.html" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="r.html" class="md-nav__link">
+        R
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="relion.html" class="md-nav__link">
+        Relion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="singularity.html" class="md-nav__link">
+        Singularity
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Storage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/filesystem-overview.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/quota.html" class="md-nav__link">
+        Quota
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/file-transfer.html" class="md-nav__link">
+        Moving files to and from the HPCs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-system/scratch.html" class="md-nav__link">
+        Scratch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Workspaces
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Workspaces" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Workspaces
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/workspaces.html" class="md-nav__link">
+        Intro to Workspaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc-workspaces/workspaces.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc-workspaces/management.html" class="md-nav__link">
+        Workspace management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc-workspaces/environment.html" class="md-nav__link">
+        Software environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpc-workspaces/monitoring.html" class="md-nav__link">
+        Monitoring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Optimization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Optimization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Optimization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimization/scaling.html" class="md-nav__link">
+        Scaling
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/investment.html" class="md-nav__link">
+        Investment
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/support.html" class="md-nav__link">
+        Support
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/faq.html" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../halloffame.html" class="md-nav__link">
+        Hall of Fame
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-of-conduct.html" class="md-nav__link">
+        Code of Conduct
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-Started/glossary.html" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-software-packages" class="md-nav__link">
+    Building Software packages
+  </a>
+  
+    <nav class="md-nav" aria-label="Building Software packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#software-stacks" class="md-nav__link">
+    Software stacks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#easybuild" class="md-nav__link">
+    EasyBuild
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-and-r" class="md-nav__link">
+    Python and R
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manually-compiling" class="md-nav__link">
+    Manually compiling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-stacks-with-modules" class="md-nav__link">
+    Software Stacks with Modules
+  </a>
+  
+    <nav class="md-nav" aria-label="Software Stacks with Modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modulefiles" class="md-nav__link">
+    Modulefiles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.mskcc.org/HPC/userdocs.git/edit/main/docs/software/installing-custom-software.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="installing-custom-software">Installing Custom Software</h1>
+<h2 id="description">Description</h2>
+<p>UBELIX comes with a plethora of software pre-installed. 
+And there are tools provided installing additional packages in the user/group space. The present <strong>CustomRepo</strong> and <strong>Workspace modules</strong> provide easy access even for multiple versions of the same Software package. </p>
+<p>The command <code>module avail</code> lists the available packages and <code>module spider FFTW</code> searches for all modules which have FFTW in their name. 
+This article describes a procedure for installing custom software stacks in your user/group space. An EasyBuild and a manual approach is presented.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You <strong>cannot</strong> use the packet management utility yum for this, since this command requires root privileges to install software system wide. 
+Instead you have to compile and install the software yourself. </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you know that some missing software could be of general interest for a <strong>wide community</strong> on our machines, you can ask us to install the software system wide. Bioinformatic packages are managed by <a href="https://www.vital-it.ch/about#contact">Vital-IT</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you need further assistance in installing your software packages or optimizing for our machine architecture, get in touch with our support team. </p>
+</div>
+<p>The <strong>LMOD module</strong> system allows to enable software package by package. Thus, influences between different packages can be minimized. It also allows to have multiple versions of the same software product installed side by side. 
+See <a href="hpc-modules.html">HPC software environment</a>.</p>
+<p>There are modules providing access to your user/group software stacks and assisting you with building packages into them. </p>
+<p>When possible we use <a href="https://easybuild.readthedocs.io/en/latest/">EasyBuild</a> to provision software packages. 
+EasyBuild is a software installation framework. Installation procedures are defined in so called EasyConfigs, including the location of the sources, dependencies, its versions, used environments, compile arguments, and more. 
+These EasyConfigs are publicly available on <a href="https://github.com/easybuilders/easybuild-easyconfigs">EasyBuild github repository</a> and can be downloaded used and if necessary adapted, e.g. for new versions.  </p>
+<h2 id="building-software-packages">Building Software packages</h2>
+<p>There are mainly two options to build a software package and its module:</p>
+<ul>
+<li>using <strong>EasyBuild</strong>, with an existing, an modified or a newly created EasyConfig</li>
+<li>performing <strong>manual installation</strong>, and creating a module file</li>
+</ul>
+<p>In the following, both methods are described in more details.</p>
+<p>In general we consider:</p>
+<ul>
+<li>Is <a href="https://github.com/easybuilders/easybuild-easyconfigs">there</a> already and EasyBuild recipe available, which can be used or modified?</li>
+<li>Which software stack we want to build into, a specific CPU architecture, OR all CPU architectures, OR should it be a generic one (see <a href="#software-stacks">Software stacks</a>)</li>
+</ul>
+<h3 id="software-stacks">Software stacks</h3>
+<p><img alt="Software stacks" src="../images/UBELIX_SoftwareStack.png" title="UBELIX Software Stacks" /></p>
+<p>On UBELIX a software stack for each <strong>CPU architecture</strong> is provided. Applications are build on and for this specific architecture. 
+Therewith, application can use different optimizations on different architectures, e.g. using AVX2 instruction set on Broadwell).
+Furthermore, a <strong>generic</strong> software stack is provided, where architecture independent applications are installed, e.g. Python scripts. 
+Our generic software stack is build on Ivybridge nodes, which have the lowest instruction set. Therewith runtime conflicts are prevented. </p>
+<p>For EasyBuild additional tools are provided, which install automatically in all architectural or the generic software stack, see below.</p>
+<p>Additionally, with the <code>Workspace</code> and <code>Workspace_Home</code> module such software stacks can be created in your user/group space.</p>
+<h2 id="easybuild">EasyBuild</h2>
+<p>For detailed instructions read the <a href="EasyBuild.html">EasyBuild article</a>.</p>
+<p>If you are installing your own application you may want to consider to create an EasyConfig for it. Have a look in the <a href="https://easybuild.readthedocs.io/en/latest/">EasyBuild documentation</a>, examples on the <a href="https://github.com/easybuilders/easybuild-easyconfigs/tree/develop/easybuild/easyconfigs">EasyBuild github</a>. And if necessary ask our support team for assistance. </p>
+<h2 id="python-and-r">Python and R</h2>
+<p>For many python and R packages EasyConfig exist. These can be used to install the package like all other EasyBuild packages. See <a href="EasyBuild.html">EasyBuild article</a>. 
+Alternatively, you can use the Python/R package manager and advice them to install into your HOME/Workspace directory. Please see the <a href="python.html">Python</a> or <a href="r.html">R</a> pages.</p>
+<h2 id="manually-compiling">Manually compiling</h2>
+<p>There are very different ways of manually installing software packages, starting from just using a compiler, having a makefile, up to complex build systems. 
+A few considerations need to kept in mind while building for our systems:</p>
+<ul>
+<li>Compilers: different compilers are available and can be loaded by modules. Toolchains bundle compiler with additionally libraries and tools, like MPI, FFTW, MKL, see <a href="hpc-modules.html#toolchains">Toolchains</a>. Furthermore, complex algorithms are optimised differently in the compilers. It is worthwhile to try and compare multiple compilers. </li>
+<li>CPU architectures: since there are different CPU architectures available, applications should be build for the targeted architecture. Often significant performance improvements can be obtained compiling for the correct instruction sets. Therefore, launch your build processes on the targeted architecture.</li>
+<li>Accessibility: On the one hand probably different versions, e.g. for compiler and CPU architecture should be provided. On the other hand the access to it should be as easy as possible for all users of that package. Therefore, modules provide a user-friendly. These modules can be organized e.g. in software stacks, one for each architecture. </li>
+</ul>
+<p>One and probably the most used procedure is the GNU configure / make:</p>
+<div class="highlight"><pre><span></span><code>tar xzvf some-software-0.1.tar.gz
+<span class="nb">cd</span> some-software-0.1
+./configure --prefix<span class="o">=</span>/path/to/target/some-software/0.1
+make
+make install
+make clean
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Consider creating an Easyconfig if you already have a well tested procedure, see <a href="EasyBuild.html">EasyBuild</a>. </p>
+</div>
+<p><code>configure</code> is usually a complex shell script that gathers information about the system and prepares the compile process.<br />
+With the <code>--prefix</code> option you can specify a base installation directory, where <code>make install</code> will install the files into subdirectories like <code>bin</code>, <code>lib</code>, <code>include</code>, etc. </p>
+<p>The make utility is what does the actual compiling and linking. 
+If, for example, some additional libraries are missing on the system or not found in the expected location, the command will exit immediately. </p>
+<p>Detailed documentation can be found on the <a href="http://www.gnu.org/software/make/manual/make.html">GNU make documentation page</a></p>
+<h2 id="software-stacks-with-modules">Software Stacks with Modules</h2>
+<p>The <a href="../hpc-workspaces/environment.html">Workspace module</a> module provide a pre-defined setup where software stacks for the <strong>different CPU architectures</strong> as well as a <strong>generic</strong> one is accessible by default. 
+After loading the module you will always see all the <strong>generic</strong> software stack and the software stack for the CPU architecture you are located on.</p>
+<p>If you install your packages into this structure, your modules (for the correct architecture) can be accessed without additional effort. </p>
+<p>In general you find a structure like:</p>
+<div class="highlight"><pre><span></span><code>/path/to/workspace/
++-- modulefiles          # e.g. for self defined Meta Modules
++-- Software
+   +-- epyc2.el7
+      +-- ...
+   +-- broadwell.el7
+      +-- modulefiles
+         +-- all         # place modulefiles here with structure Name/version
+            +-- ProdXY
+               +-- 0.1.lua # a modulefile example
+      +-- easybuild       # the EasyBuild software directory, could be used OR
+      +-- software        # you could install under this directory
+   +-- generic.el7
+      +-- modulefiles
+         +-- all         # place modulefiles here with structure Name/version
+            +-- ProdABC
+               +-- 15.1 # another modulefile example, also TCL modules are accepted
+      +-- easybuild       # the EasyBuild software directory, could be used OR
+   +-- sources
+</code></pre></div>
+<p>The example shows detailed structure for Broadwell and generic software stack. But the same structure can be found also for the other stacks.</p>
+<p>The most important is the location of the modulefiles. These should be located in:</p>
+<ul>
+<li><code>EASYBUILD_PREFIX/../modulefiles/all</code> for the architectural software stack AND</li>
+<li><code>CUSTOM_GENERIC_EASYBUILD_PREFIX/../modulefiles/all</code> for the generic software stack</li>
+</ul>
+<p>The prefix (set in the Workspace and CustomRepo module) contains architectural information, here for example for Broadwell: 
+<div class="highlight"><pre><span></span><code>EASYBUILD_PREFIX=/storage/workspaces/hpc-group/project1/Software/broadwell.el7/easybuild
+</code></pre></div></p>
+<h3 id="modulefiles">Modulefiles</h3>
+<p>A modulefile describes location and environment setting for the targeted application, e.g. setting the <code>PATH</code>, <code>LD_LIBRARY_PATH</code> and other variables. 
+The present Lmod system searches these Modulefiles in subdirectories of all directories registered in <code>MODULEPATH</code>. The above described architectural software stacks as well as the generic one are registered in the <strong>Workspace</strong> module by default. </p>
+<p>There are, two types of modules, the default Linux modules, written in TCL (described below) and Lua modules (created by our EasyBuild). Lua modules are more powerful, but for simplicity we present TCL modules here. </p>
+<p>Using the <code>Workspace</code> or <code>Workspace_Home</code> module, there are multiple locations for modules:</p>
+<ul>
+<li><code>$WORKSPACE/Software/&lt;architecture&gt;/modulefiles/all/</code> architecture dependent software stacks, where <code>&lt;architecture&gt;</code> are directories for the different architectures.</li>
+<li><code>$WORKSPACE/Software/generic.el7/modulefiles/</code> architecture independent modules, e.g. generic tools like p7zip, git or Python scripts, can be located at OR</li>
+<li><code>$WORKSPACE/modulefiles</code> for generic modules like Meta modules (environment definitions) can be placed</li>
+</ul>
+<p>Assuming an application <code>ProdXY</code>, build with <code>foss/2021a</code> and netCDF, a lua module file maybe created at <code>$WORKSPACE/Software/generic.el7/modulefiles/ProdABC</code> as the following:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- comments start with &quot;--&quot;</span>
+<span class="c1">-- at least a short description, best with URL</span>
+<span class="n">whatis</span><span class="p">(</span><span class="s">[==[Description: ProdABC, a tool for something]==]</span><span class="p">)</span>
+<span class="c1">-- conflicting modules, e.g. other versions of this package</span>
+<span class="n">conflict</span><span class="p">(</span><span class="s2">&quot;ProdABC&quot;</span><span class="p">)</span>
+<span class="c1">-- location of actual installation, for later reference</span>
+<span class="kd">local</span> <span class="n">root</span> <span class="o">=</span> <span class="s2">&quot;/path/to/software/ProdABC/installation&quot;</span>
+
+<span class="c1">-- dependencies required to be loaded during runtime</span>
+<span class="kr">if</span> <span class="ow">not</span> <span class="p">(</span> <span class="n">isloaded</span><span class="p">(</span><span class="s2">&quot;foss/2021a&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="kr">then</span>
+    <span class="nb">load</span><span class="p">(</span><span class="s2">&quot;foss/2021a&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+<span class="kr">if</span> <span class="ow">not</span> <span class="p">(</span> <span class="n">isloaded</span><span class="p">(</span><span class="s2">&quot;netCDF/4.8.0-gompi-2021a&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="kr">then</span>
+    <span class="nb">load</span><span class="p">(</span><span class="s2">&quot;netCDF/4.8.0-gompi-2021a&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+<span class="c1">-- setting environment variables, e.g. PATH,...</span>
+<span class="n">prepend_path</span><span class="p">(</span><span class="s2">&quot;PATH&quot;</span><span class="p">,</span> <span class="n">pathJoin</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;bin&quot;</span><span class="p">))</span>
+<span class="n">prepend_path</span><span class="p">(</span><span class="s2">&quot;LD_LIBRARY_PATH&quot;</span><span class="p">,</span> <span class="n">pathJoin</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;lib&quot;</span><span class="p">))</span>
+<span class="n">setenv</span><span class="p">(</span><span class="s2">&quot;PRODABC_DATA_DIR&quot;</span><span class="p">,</span> <span class="n">pathJoin</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;share&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>In the first lines, we can set conflicts with other modules (here named ProdABC). Then we load some dependency modules and provide some description. The additional lines depend on your requirements for the application. With <code>set</code> you can define internal variables (within this modulefile). 
+The command <code>setenv</code> defines a environment variable, set in your environment after loading the module. The commands <code>prepend-path</code> and <code>append-path</code> extend an environment variable at the front or end.</p>
+<p>There are common environment variables like:</p>
+<ul>
+<li><code>PATH</code> for providing executables,</li>
+<li><code>LD_LIBRARY_PATH</code> location of libraries, e.g. <code>prodXY.so</code>,</li>
+<li><code>PYTHONPATH</code> providing Python modules,</li>
+<li><code>CONDA_ENVS_PATH</code> for providing Conda environments,
+etc.
+And others which are very application specific.</li>
+</ul>
+<p>If the module is in a registered location, it can be loaded by:</p>
+<div class="highlight"><pre><span></span><code>module load ProdXY
+</code></pre></div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2022-06-30
+    
+  </small>
+</div>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="hpc-modules.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: HPC software environment" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              HPC software environment
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="EasyBuild.html" class="md-footer__link md-footer__link--next" aria-label="Next: EasyBuild" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              EasyBuild
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Memorial Sloan Kettering Cancer Center, High Performance Computing Group
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.mskcc.org/HPC/userdocs.git" target="_blank" rel="noopener" title="github.mskcc.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.0238f547.min.js"></script>
+      
+    
+  </body>
+</html>
