@@ -1,4 +1,4 @@
-# HPC User Documentation
+# [HPC User Documentation](https://mskcc.github.io/userdocs/)
 
 This is the repository of the offical end user documentation of MSKCC HPC clusters and related topics
 is managed. 
